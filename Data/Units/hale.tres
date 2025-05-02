@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://d1pplv4esnoo6"]
+
+[ext_resource type="Script" uid="uid://b5xwqcu3p6jfw" path="res://Data/Units/unit_stats.gd" id="1_nq6dh"]
+
+[resource]
+script = ExtResource("1_nq6dh")
+name = "Hale"
+rarity = 0
+gold_cost = 1
+skin_coordinates = Vector2i(2, 5)
+metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

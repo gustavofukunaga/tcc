@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cy4g8o8gnifo0"]
+[gd_scene load_steps=9 format=4 uid="uid://cy4g8o8gnifo0"]
 
+[ext_resource type="Script" uid="uid://dn3xhixj770o0" path="res://Scenes/Arena/arena.gd" id="1_6o3nl"]
 [ext_resource type="TileSet" uid="uid://c1jgtklhf5663" path="res://Scenes/Arena/tile_set.tres" id="1_b8w6q"]
 [ext_resource type="Texture2D" uid="uid://b1ro1ssup7dcp" path="res://Assets/sprites/tiles.png" id="2_fp5lk"]
+[ext_resource type="PackedScene" uid="uid://coras6tgh04h5" path="res://Scenes/Unit/unit.tscn" id="4_rm3sm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6o3nl"]
 texture = ExtResource("2_fp5lk")
@@ -238,6 +240,7 @@ tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_t7yvt")
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_6o3nl")
 metadata/_edit_lock_ = true
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -249,6 +252,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAAAAYAAAAAAAEAAgAAAAYAAAAAAAIAAgAAAAY
 tile_set = ExtResource("1_b8w6q")
 
 [node name="Props" type="TileMapLayer" parent="Visuals"]
+modulate = Color(1, 1, 1, 0.392157)
 tile_set = ExtResource("1_b8w6q")
 
 [node name="Walls" type="TileMapLayer" parent="Visuals"]
@@ -263,6 +267,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Decor" type="TileMapLayer" parent="GameArea"]
+modulate = Color(1, 1, 1, 0.392157)
 tile_set = ExtResource("1_b8w6q")
 
 [node name="Highlight" type="TileMapLayer" parent="GameArea"]
@@ -277,3 +282,6 @@ metadata/_edit_lock_ = true
 
 [node name="Highlight" type="TileMapLayer" parent="Bench"]
 tile_set = SubResource("TileSet_rm3sm")
+
+[node name="Unit" parent="." instance=ExtResource("4_rm3sm")]
+position = Vector2(32, 96)
