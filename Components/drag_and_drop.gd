@@ -7,6 +7,7 @@ signal dropped(starting_position: Vector2)
 
 @export var enabled: bool = true
 @export var target: Area2D
+@export var pickup_offset: float
 
 var starting_position: Vector2
 var offset := Vector2.ZERO
@@ -23,10 +24,18 @@ func _process(_delta: float) -> void:
 		target.global_position = target.get_global_mouse_position() + offset
 
 
+func _input(event: InputEvent) -> void:
+	if dragging and event.is_action_pressed("cancel_drag"):
+		_cancel_dragging()
+	elif dragging and event.is_action_released("select"):
+		_drop()
+
+
 func _end_dragging() -> void:
 	dragging = false
 	target.remove_from_group("dragging")
 	target.z_index = 0
+	target.move_local_y(pickup_offset)
 
 
 func _cancel_dragging() -> void:
@@ -39,6 +48,7 @@ func _start_dragging() -> void:
 	starting_position = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 99
+	target.move_local_y(-pickup_offset)
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
 
@@ -57,9 +67,5 @@ func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
 	if not dragging and dragging_object:
 		return
 	
-	if dragging and event.is_action_pressed("cancel_drag"):
-		_cancel_dragging()
-	elif not dragging and event.is_action_pressed("select"):
+	if not dragging and event.is_action_pressed("select"):
 		_start_dragging()
-	elif dragging and event.is_action_released("select"):
-		_drop()

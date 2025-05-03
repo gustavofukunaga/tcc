@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://coras6tgh04h5"]
+[gd_scene load_steps=10 format=3 uid="uid://coras6tgh04h5"]
 
 [ext_resource type="Script" uid="uid://cg7h0owded255" path="res://Scenes/Unit/unit.gd" id="1_15sed"]
 [ext_resource type="Texture2D" uid="uid://b804rgdbdcbwx" path="res://Assets/rogues.png" id="1_hgpyh"]
 [ext_resource type="Resource" uid="uid://d1pplv4esnoo6" path="res://Data/Units/hale.tres" id="2_ladk0"]
+[ext_resource type="Material" uid="uid://bb8m5fhpi4wqn" path="res://Assets/shaders/2d_outline_shader.tres" id="3_ulevp"]
 [ext_resource type="Script" uid="uid://dsyg84iqicbhl" path="res://Components/drag_and_drop.gd" id="4_iuf4a"]
+[ext_resource type="Script" uid="uid://dye12q485wwdu" path="res://Components/outline_highlighter.gd" id="6_jbdwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpyh"]
 size = Vector2(36, 36)
@@ -22,8 +24,12 @@ border_color = Color(0.231373, 0.113725, 0.0980392, 1)
 [node name="Unit" type="Area2D"]
 script = ExtResource("1_15sed")
 stats = ExtResource("2_ladk0")
+metadata/_edit_group_ = true
 
-[node name="Skin" type="Sprite2D" parent="."]
+[node name="Visuals" type="CanvasGroup" parent="."]
+material = ExtResource("3_ulevp")
+
+[node name="Skin" type="Sprite2D" parent="Visuals"]
 position = Vector2(16, 8)
 texture = ExtResource("1_hgpyh")
 region_enabled = true
@@ -34,10 +40,10 @@ position = Vector2(16, 8)
 shape = SubResource("RectangleShape2D_hgpyh")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = 1.0
-offset_top = -14.0
-offset_right = 31.0
-offset_bottom = -10.0
+offset_left = 8.0
+offset_top = -11.0
+offset_right = 24.0
+offset_bottom = -7.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hgpyh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_15sed")
 value = 33.79
@@ -46,3 +52,13 @@ show_percentage = false
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_iuf4a")
 target = NodePath("..")
+pickup_offset = 7.0
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("6_jbdwb")
+visuals = NodePath("../Visuals")
+outline_color = Color(1, 1, 1, 1)
+outline_thickness = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
