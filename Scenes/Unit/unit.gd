@@ -9,6 +9,8 @@ extends Area2D
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
 
+signal unit_picked
+signal unit_dropped
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -34,15 +36,17 @@ func reset_after_dragging(starting_position: Vector2) -> void:
 
 
 func _on_drag_started() -> void:
+	unit_picked.emit()
 	pass
 
 
 func _on_dropped(starting_position: Vector2) -> void:
-	pass
+	unit_dropped.emit()
 
 
 func _on_drag_canceled(starting_position: Vector2) -> void:
 	reset_after_dragging(starting_position)
+	unit_dropped.emit()
 
 
 func _on_mouse_entered() -> void:

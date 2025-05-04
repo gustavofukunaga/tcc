@@ -52,7 +52,7 @@ show_percentage = false
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_iuf4a")
 target = NodePath("..")
-pickup_offset = 7.0
+pickup_offset = 5.0
 
 [node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
 script = ExtResource("6_jbdwb")
