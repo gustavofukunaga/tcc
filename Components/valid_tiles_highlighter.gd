@@ -18,27 +18,36 @@ extends Node
 
 var unit_picked: bool = false
 
+
 func _ready() -> void:
+	var units := get_tree().get_nodes_in_group("Units")
+	for unit: Unit in units:
+		setup_unit(unit)
+
+
+func setup_unit(unit: Unit) -> void:
 	unit.unit_picked.connect(_on_unit_picked)
 	unit.unit_dropped.connect(_on_unit_dropped)
-	unit_2.unit_picked.connect(_on_unit_picked)
-	unit_2.unit_dropped.connect(_on_unit_dropped)
-	
+
 
 func _on_unit_picked() -> void:
 	unit_picked = true
 
+
 func _on_unit_dropped() -> void:
 	unit_picked = false
 
+
 func _highlight_valid_tiles(play_area: PlayArea, highlight: TileMapLayer, source_id: int) -> void:
-	var tiles_list = play_area.get_tiles_coord()
+	var tiles_list := play_area.get_tiles_coord()
 	for tile_coord in tiles_list:
 		highlight.set_cell(tile_coord, source_id, tile)
+
 
 func _clear_highlighted_tiles() -> void:
 	game_area_highlight_layer.clear()
 	bench_highlight_layer.clear()
+
 
 func _process(_delta: float) -> void:
 	if not enabled:

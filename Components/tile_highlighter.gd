@@ -8,23 +8,6 @@ extends Node
 
 @onready var source_id := play_area.tile_set.get_source_id(0)
 
-#@onready var unit: Unit = $"../../Unit"
-#@onready var unit_2: Unit = $"../../Unit2"
-#
-#var unit_picked: bool = false
-#
-#func _ready() -> void:
-	#unit.unit_picked.connect(_on_unit_picked)
-	#unit_2.unit_picked.connect(_on_unit_picked)
-#
-#func _on_unit_picked() -> void:
-	#unit_picked = true
-	#
-#func _highlight_valid_tiles() -> void:
-	#print("")
-	#for i in play_area.get_play_area_size().x:
-		#for j in play_area.get_play_area_size().y:
-			#highlight_layer.set_cell(Vector2i(i, j), source_id, tile)
 
 func _process(_delta: float) -> void:
 	if not enabled:

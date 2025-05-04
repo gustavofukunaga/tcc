@@ -13,6 +13,19 @@ var starting_position: Vector2
 var offset := Vector2.ZERO
 var dragging := false
 
+@onready var skin: Sprite2D = $"../Visuals/Skin"
+@onready var health_bar: ProgressBar = $"../HealthBar"
+
+
+func _pickup_unit() -> void:
+	skin.position.y -= pickup_offset
+	health_bar.position.y -= pickup_offset
+
+
+func _drop_unit() -> void:
+	skin.position.y += pickup_offset
+	health_bar.position.y += pickup_offset
+
 
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component!")
@@ -35,7 +48,7 @@ func _end_dragging() -> void:
 	dragging = false
 	target.remove_from_group("dragging")
 	target.z_index = 0
-	target.move_local_y(pickup_offset)
+	_drop_unit()
 
 
 func _cancel_dragging() -> void:
@@ -48,7 +61,7 @@ func _start_dragging() -> void:
 	starting_position = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 99
-	target.move_local_y(-pickup_offset)
+	_pickup_unit()
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
 
