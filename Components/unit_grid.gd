@@ -23,7 +23,6 @@ func remove_unit(tile: Vector2i) -> void:
 	var unit := units[tile] as Node
 	
 	if not unit:
-		print("Unit not found to remove at tile ", tile)
 		return
 	
 	units[tile] = null

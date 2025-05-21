@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cy4g8o8gnifo0"]
+[gd_scene load_steps=12 format=4 uid="uid://cy4g8o8gnifo0"]
 
 [ext_resource type="Script" uid="uid://dn3xhixj770o0" path="res://Scenes/Arena/arena.gd" id="1_6o3nl"]
 [ext_resource type="TileSet" uid="uid://c1jgtklhf5663" path="res://Scenes/Arena/tile_set.tres" id="1_b8w6q"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bt3yv83xd01q5" path="res://Components/tile_highlighter.gd" id="6_qnyor"]
 [ext_resource type="Resource" uid="uid://xc2wwbeifw3u" path="res://Data/Units/frod.tres" id="8_0ibrr"]
 [ext_resource type="Script" uid="uid://bphpuyrtltmeu" path="res://Components/unit_mover.gd" id="8_fsjwy"]
+[ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="8_vgwd8"]
+[ext_resource type="PackedScene" uid="uid://bsuv6scjti73j" path="res://Scenes/Shop/shop.tscn" id="11_xt8pn"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_6o3nl")
@@ -82,6 +84,42 @@ play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
+[node name="Unit" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(129, 0)
+
+[node name="Unit2" parent="Bench" instance=ExtResource("4_rm3sm")]
+
+[node name="Unit3" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(33, 0)
+stats = ExtResource("8_vgwd8")
+
+[node name="Unit7" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(192, 0)
+stats = ExtResource("8_vgwd8")
+
+[node name="Unit8" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(225, 0)
+stats = ExtResource("8_vgwd8")
+
+[node name="Unit9" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(257, 0)
+stats = ExtResource("8_vgwd8")
+
+[node name="Unit10" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(288, 0)
+stats = ExtResource("8_vgwd8")
+
+[node name="Unit4" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(65, 0)
+stats = ExtResource("8_0ibrr")
+
+[node name="Unit6" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(159, 0)
+stats = ExtResource("8_0ibrr")
+
+[node name="Unit5" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(96, 0)
+
 [node name="UnitGroup" type="Node" parent="."]
 
 [node name="GameAreaHighlight" type="TileMapLayer" parent="UnitGroup"]
@@ -104,23 +142,10 @@ game_area_highlight_layer = NodePath("../GameAreaHighlight")
 bench_highlight_layer = NodePath("../BenchHighlight")
 tile = Vector2i(3, 0)
 
-[node name="Unit" parent="UnitGroup" instance=ExtResource("4_rm3sm")]
-position = Vector2(192, 64)
-
-[node name="Unit2" parent="UnitGroup" instance=ExtResource("4_rm3sm")]
-position = Vector2(160, 320)
-
-[node name="Unit3" parent="UnitGroup" instance=ExtResource("4_rm3sm")]
-position = Vector2(192, 320)
-stats = ExtResource("8_0ibrr")
-
-[node name="Unit4" parent="UnitGroup" instance=ExtResource("4_rm3sm")]
-position = Vector2(224, 320)
-stats = ExtResource("8_0ibrr")
-
-[node name="Unit5" parent="UnitGroup" instance=ExtResource("4_rm3sm")]
-position = Vector2(256, 320)
-
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_fsjwy")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Shop" parent="UI" instance=ExtResource("11_xt8pn")]

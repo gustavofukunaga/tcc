@@ -12,10 +12,6 @@ extends Node
 @onready var bench_source_id := bench.tile_set.get_source_id(0)
 
 
-@onready var unit: Unit = $"../Unit"
-@onready var unit_2: Unit = $"../Unit2"
-
-
 var unit_picked: bool = false
 
 
