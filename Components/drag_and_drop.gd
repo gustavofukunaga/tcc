@@ -13,18 +13,16 @@ var starting_position: Vector2
 var offset := Vector2.ZERO
 var dragging := false
 
-@onready var skin: Sprite2D = $"../Visuals/Skin"
-@onready var health_bar: ProgressBar = $"../HealthBar"
+@onready var skin: CanvasGroup = $"../Visuals"
+
 
 
 func _pickup_unit() -> void:
 	skin.position.y -= pickup_offset
-	health_bar.position.y -= pickup_offset
 
 
 func _drop_unit() -> void:
 	skin.position.y += pickup_offset
-	health_bar.position.y += pickup_offset
 
 
 func _ready() -> void:
