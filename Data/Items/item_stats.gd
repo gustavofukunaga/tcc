@@ -15,6 +15,7 @@ const RARITY_COLORS := {
 @export_category("Data")
 @export var rarity: Rarity 
 @export var gold_cost := 1
+@export var pool_count := 5
 
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i

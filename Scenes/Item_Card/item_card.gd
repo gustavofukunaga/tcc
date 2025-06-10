@@ -26,11 +26,11 @@ func _ready() -> void:
 	player_stats.changed.connect(_on_player_stats_changed)
 	_on_player_stats_changed()
 	
-	item_bought.connect(
-		func(item: ItemStats):
-			print("bought item: ", item)
-			print("gold: ", player_stats.gold)
-	)
+	#item_bought.connect(
+		#func(item: ItemStats):
+			#print("bought item: ", item)
+			#print("gold: ", player_stats.gold)
+	#)
 
 
 func _set_item_stats(value: ItemStats) -> void:

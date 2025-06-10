@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_ounty")
 name = "Knife"
-rarity = 2
+rarity = 0
 gold_cost = 2
+pool_count = 5
 skin_coordinates = Vector2i(5, 0)
 metadata/_custom_type_script = "uid://cwm0usltptrtm"

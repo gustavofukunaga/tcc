@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemPool" load_steps=5 format=3 uid="uid://cxcmqo5vcsvnl"]
+
+[ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_o62qo"]
+[ext_resource type="Resource" uid="uid://csbl0xjlpdu53" path="res://Data/Items/knife.tres" id="2_81imc"]
+[ext_resource type="Script" uid="uid://dyfcssryrr8ts" path="res://Data/item_pool/item_pool.gd" id="2_w82qb"]
+[ext_resource type="Resource" uid="uid://c4uvwindpxl1i" path="res://Data/Items/hammer.tres" id="3_js2ie"]
+
+[resource]
+script = ExtResource("2_w82qb")
+available_items = Array[ExtResource("1_o62qo")]([ExtResource("2_81imc"), ExtResource("3_js2ie")])
+metadata/_custom_type_script = "uid://dyfcssryrr8ts"
