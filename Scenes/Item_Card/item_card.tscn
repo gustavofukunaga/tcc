@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dpmc0lpwer114" path="res://Scenes/Item_Card/item_card.gd" id="1_geaty"]
 [ext_resource type="Resource" uid="uid://cfihuefg1m0o2" path="res://Data/Player/player_stats.tres" id="2_gkhq5"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://Assets/font/m5x7.ttf" id="2_s0ad3"]
-[ext_resource type="Resource" uid="uid://d1pplv4esnoo6" path="res://Data/Units/hale.tres" id="3_1cwb6"]
+[ext_resource type="Resource" uid="uid://csbl0xjlpdu53" path="res://Data/Items/knife.tres" id="3_1cwb6"]
 [ext_resource type="Texture2D" uid="uid://c4awhqfup7o2k" path="res://Assets/sprites/gold.png" id="3_gkhq5"]
 [ext_resource type="Texture2D" uid="uid://bq3pgyyo7wana" path="res://Assets/items.png" id="4_1cwb6"]
 
@@ -38,7 +38,7 @@ offset_bottom = 8.0
 focus_mode = 0
 script = ExtResource("1_geaty")
 player_stats = ExtResource("2_gkhq5")
-unit_stats = ExtResource("3_1cwb6")
+item_stats = ExtResource("3_1cwb6")
 
 [node name="BackDrop" type="ColorRect" parent="."]
 layout_mode = 1

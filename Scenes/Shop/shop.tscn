@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsuv6scjti73j"]
+[gd_scene load_steps=7 format=3 uid="uid://bsuv6scjti73j"]
 
 [ext_resource type="PackedScene" uid="uid://eui7ynk8qylg" path="res://Scenes/Gold_display/gold_display.tscn" id="1_8dak6"]
 [ext_resource type="Script" uid="uid://olivmg3a0ngl" path="res://Scenes/Shop/shop.gd" id="1_w8bjl"]
 [ext_resource type="Resource" uid="uid://cfihuefg1m0o2" path="res://Data/Player/player_stats.tres" id="2_274ew"]
 [ext_resource type="PackedScene" uid="uid://cmfrfmcum6ufj" path="res://Scenes/Item_Card/item_card.tscn" id="2_w8bjl"]
 [ext_resource type="PackedScene" uid="uid://ba3mycns7o4qy" path="res://Scenes/Reroll_Buttom/reroll_button.tscn" id="3_274ew"]
+[ext_resource type="Resource" uid="uid://csbl0xjlpdu53" path="res://Data/Items/knife.tres" id="5_rjc2l"]
 
 [node name="Shop" type="VBoxContainer"]
 anchors_preset = 1
@@ -31,18 +32,23 @@ layout_mode = 2
 
 [node name="ItemCard" parent="Top/ShopCards" instance=ExtResource("2_w8bjl")]
 layout_mode = 2
+item_stats = ExtResource("5_rjc2l")
 
 [node name="ItemCard2" parent="Top/ShopCards" instance=ExtResource("2_w8bjl")]
 layout_mode = 2
+item_stats = ExtResource("5_rjc2l")
 
 [node name="ItemCard3" parent="Top/ShopCards" instance=ExtResource("2_w8bjl")]
 layout_mode = 2
+item_stats = ExtResource("5_rjc2l")
 
 [node name="ItemCard4" parent="Top/ShopCards" instance=ExtResource("2_w8bjl")]
 layout_mode = 2
+item_stats = ExtResource("5_rjc2l")
 
 [node name="ItemCard5" parent="Top/ShopCards" instance=ExtResource("2_w8bjl")]
 layout_mode = 2
+item_stats = ExtResource("5_rjc2l")
 
 [node name="Bottom" type="HBoxContainer" parent="."]
 layout_mode = 2

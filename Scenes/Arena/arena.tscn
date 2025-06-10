@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cy4g8o8gnifo0"]
+[gd_scene load_steps=14 format=4 uid="uid://cy4g8o8gnifo0"]
 
 [ext_resource type="Script" uid="uid://dn3xhixj770o0" path="res://Scenes/Arena/arena.gd" id="1_6o3nl"]
 [ext_resource type="TileSet" uid="uid://c1jgtklhf5663" path="res://Scenes/Arena/tile_set.tres" id="1_b8w6q"]
@@ -10,7 +10,9 @@
 [ext_resource type="Resource" uid="uid://xc2wwbeifw3u" path="res://Data/Units/frod.tres" id="8_0ibrr"]
 [ext_resource type="Script" uid="uid://bphpuyrtltmeu" path="res://Components/unit_mover.gd" id="8_fsjwy"]
 [ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="8_vgwd8"]
+[ext_resource type="PackedScene" uid="uid://bu0p362yp4ive" path="res://Scenes/Item/item.tscn" id="9_pa1tb"]
 [ext_resource type="PackedScene" uid="uid://bsuv6scjti73j" path="res://Scenes/Shop/shop.tscn" id="11_xt8pn"]
+[ext_resource type="Script" uid="uid://cin6la2gclbur" path="res://Components/item_mover.gd" id="12_nmnh2"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_6o3nl")
@@ -120,11 +122,12 @@ stats = ExtResource("8_0ibrr")
 [node name="Unit5" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 32)
 
-[node name="ItemsBench" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid")]
+[node name="ItemsBench" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(160, 320)
 tile_set = ExtResource("1_b8w6q")
 script = ExtResource("3_11not")
 unit_grid = NodePath("ItemsUnitGrid")
+tile_highlighter = NodePath("TileHighlighter")
 metadata/_custom_type_script = "uid://cn3qboeoanrk7"
 metadata/_edit_lock_ = true
 
@@ -132,6 +135,27 @@ metadata/_edit_lock_ = true
 script = ExtResource("4_t7yvt")
 size = Vector2i(10, 1)
 metadata/_custom_type_script = "uid://bcful8v6mbard"
+
+[node name="TileHighlighter" type="Node" parent="ItemsBench" node_paths=PackedStringArray("play_area", "highlight_layer")]
+script = ExtResource("6_qnyor")
+enabled = false
+play_area = NodePath("..")
+highlight_layer = NodePath("../Highlight")
+tile = Vector2i(3, 0)
+
+[node name="Highlight" type="TileMapLayer" parent="ItemsBench"]
+tile_set = ExtResource("1_b8w6q")
+
+[node name="Item" parent="ItemsBench" instance=ExtResource("9_pa1tb")]
+
+[node name="Item2" parent="ItemsBench" instance=ExtResource("9_pa1tb")]
+position = Vector2(96, 0)
+
+[node name="Item3" parent="ItemsBench" instance=ExtResource("9_pa1tb")]
+position = Vector2(64, 0)
+
+[node name="Item4" parent="ItemsBench" instance=ExtResource("9_pa1tb")]
+position = Vector2(32, 0)
 
 [node name="UnitGroup" type="Node" parent="."]
 
@@ -147,17 +171,29 @@ position = Vector2(64, 64)
 tile_set = ExtResource("1_b8w6q")
 metadata/_edit_lock_ = true
 
-[node name="ValidTilesHighlighter" type="Node" parent="UnitGroup" node_paths=PackedStringArray("game_area", "bench", "game_area_highlight_layer", "bench_highlight_layer")]
+[node name="ItemBenchHighlight" type="TileMapLayer" parent="UnitGroup"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(160, 320)
+tile_set = ExtResource("1_b8w6q")
+metadata/_edit_lock_ = true
+
+[node name="ValidTilesHighlighter" type="Node" parent="UnitGroup" node_paths=PackedStringArray("game_area", "bench", "item_bench", "game_area_highlight_layer", "bench_highlight_layer", "item_bench_highlight_layer")]
 script = ExtResource("6_fsjwy")
 game_area = NodePath("../../GameArea")
 bench = NodePath("../../Bench")
+item_bench = NodePath("../../ItemsBench")
 game_area_highlight_layer = NodePath("../GameAreaHighlight")
 bench_highlight_layer = NodePath("../BenchHighlight")
+item_bench_highlight_layer = NodePath("../ItemBenchHighlight")
 tile = Vector2i(3, 0)
 
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_fsjwy")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+
+[node name="ItemMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
+script = ExtResource("12_nmnh2")
+play_areas = [NodePath("../ItemsBench")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 

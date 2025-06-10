@@ -10,16 +10,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0px54"]
 size = Vector2(36, 36)
 
-[node name="Item" type="Area2D"]
+[node name="Item" type="Area2D" groups=["Items"]]
 script = ExtResource("1_i10cy")
 stats = ExtResource("2_ab5lp")
+metadata/_edit_group_ = true
 
 [node name="Visuals" type="CanvasGroup" parent="."]
 material = ExtResource("2_jsxdw")
 
 [node name="Background" type="Polygon2D" parent="Visuals"]
 position = Vector2(0, -8)
-color = Color(0.329412, 0.145098, 1, 1)
+color = Color(0.0705882, 0.290196, 0.180392, 1)
 polygon = PackedVector2Array(1, 1, 31, 1, 31, 31, 1, 31)
 
 [node name="Background2" type="Polygon2D" parent="Visuals"]
@@ -36,7 +37,6 @@ region_enabled = true
 region_rect = Rect2(160, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(16, 8)
 shape = SubResource("RectangleShape2D_0px54")
 
