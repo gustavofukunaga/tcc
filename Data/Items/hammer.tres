@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://c4uvwindpxl1i"]
+
+[ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_bj1b6"]
+
+[resource]
+script = ExtResource("1_bj1b6")
+name = "Hammer"
+rarity = 0
+gold_cost = 3
+skin_coordinates = Vector2i(4, 4)
+metadata/_custom_type_script = "uid://cwm0usltptrtm"

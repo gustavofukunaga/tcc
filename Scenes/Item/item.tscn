@@ -21,12 +21,6 @@ material = ExtResource("2_jsxdw")
 [node name="Background" type="Polygon2D" parent="Visuals"]
 position = Vector2(0, -8)
 color = Color(0.0705882, 0.290196, 0.180392, 1)
-polygon = PackedVector2Array(1, 1, 31, 1, 31, 31, 1, 31)
-
-[node name="Background2" type="Polygon2D" parent="Visuals"]
-visible = false
-position = Vector2(0, -8)
-color = Color(0, 0.0823529, 0.12549, 1)
 polygon = PackedVector2Array(3, 3, 29, 3, 29, 29, 3, 29)
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
