@@ -8,4 +8,5 @@ name = "Bram"
 rarity = 2
 gold_cost = 1
 skin_coordinates = Vector2i(0, 6)
+team = 0
 metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

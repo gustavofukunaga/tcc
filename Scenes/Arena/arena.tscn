@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=4 uid="uid://cy4g8o8gnifo0"]
+[gd_scene load_steps=15 format=4 uid="uid://cy4g8o8gnifo0"]
 
 [ext_resource type="Script" uid="uid://dn3xhixj770o0" path="res://Scenes/Arena/arena.gd" id="1_6o3nl"]
 [ext_resource type="TileSet" uid="uid://c1jgtklhf5663" path="res://Scenes/Arena/tile_set.tres" id="1_b8w6q"]
-[ext_resource type="Script" uid="uid://cn3qboeoanrk7" path="res://Components/play_area.gd" id="3_11not"]
+[ext_resource type="Script" uid="uid://cn3qboeoanrk7" path="res://Custom_nodes/play_area.gd" id="3_11not"]
 [ext_resource type="PackedScene" uid="uid://coras6tgh04h5" path="res://Scenes/Unit/unit.tscn" id="4_rm3sm"]
-[ext_resource type="Script" uid="uid://bcful8v6mbard" path="res://Components/unit_grid.gd" id="4_t7yvt"]
+[ext_resource type="Script" uid="uid://bcful8v6mbard" path="res://Custom_nodes/unit_grid.gd" id="4_t7yvt"]
 [ext_resource type="Script" uid="uid://dxo8nc2san2a6" path="res://Components/valid_tiles_highlighter.gd" id="6_fsjwy"]
 [ext_resource type="Script" uid="uid://bt3yv83xd01q5" path="res://Components/tile_highlighter.gd" id="6_qnyor"]
 [ext_resource type="Resource" uid="uid://xc2wwbeifw3u" path="res://Data/Units/frod.tres" id="8_0ibrr"]
-[ext_resource type="Script" uid="uid://bphpuyrtltmeu" path="res://Components/unit_mover.gd" id="8_fsjwy"]
-[ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="8_vgwd8"]
+[ext_resource type="Script" uid="uid://bphpuyrtltmeu" path="res://Custom_nodes/unit_mover.gd" id="8_fsjwy"]
+[ext_resource type="Resource" uid="uid://d1pplv4esnoo6" path="res://Data/Units/hale.tres" id="9_87vak"]
+[ext_resource type="Resource" uid="uid://cim8of57c1lr2" path="res://Data/game_state/game_state.tres" id="11_87vak"]
 [ext_resource type="PackedScene" uid="uid://bsuv6scjti73j" path="res://Scenes/Shop/shop.tscn" id="11_xt8pn"]
-[ext_resource type="Script" uid="uid://cin6la2gclbur" path="res://Components/item_mover.gd" id="12_nmnh2"]
-[ext_resource type="Script" uid="uid://cqjp40bq6soqc" path="res://Components/item_spawner.gd" id="14_vgng5"]
+[ext_resource type="Script" uid="uid://cin6la2gclbur" path="res://Custom_nodes/item_mover.gd" id="12_nmnh2"]
+[ext_resource type="Script" uid="uid://cqjp40bq6soqc" path="res://Custom_nodes/item_spawner.gd" id="14_vgng5"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_6o3nl")
@@ -90,37 +91,36 @@ tile = Vector2i(3, 0)
 position = Vector2(0, 64)
 
 [node name="Unit2" parent="Bench" instance=ExtResource("4_rm3sm")]
+stats = ExtResource("8_0ibrr")
 
 [node name="Unit3" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 0)
-stats = ExtResource("8_vgwd8")
+stats = ExtResource("9_87vak")
 
 [node name="Unit7" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(0, 96)
-stats = ExtResource("8_vgwd8")
 
 [node name="Unit8" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 96)
-stats = ExtResource("8_vgwd8")
+stats = ExtResource("9_87vak")
 
 [node name="Unit9" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(0, 128)
-stats = ExtResource("8_vgwd8")
 
 [node name="Unit10" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 128)
-stats = ExtResource("8_vgwd8")
+stats = ExtResource("8_0ibrr")
 
 [node name="Unit4" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(0, 32)
-stats = ExtResource("8_0ibrr")
+stats = ExtResource("9_87vak")
 
 [node name="Unit6" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 64)
-stats = ExtResource("8_0ibrr")
 
 [node name="Unit5" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 32)
+stats = ExtResource("8_0ibrr")
 
 [node name="ItemsBench" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(160, 320)
@@ -179,6 +179,7 @@ tile = Vector2i(3, 0)
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("8_fsjwy")
 play_areas = [NodePath("../GameArea"), NodePath("../Bench")]
+game_state = ExtResource("11_87vak")
 
 [node name="ItemMover" type="Node" parent="." node_paths=PackedStringArray("play_areas")]
 script = ExtResource("12_nmnh2")

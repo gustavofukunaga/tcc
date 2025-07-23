@@ -4,7 +4,7 @@ extends Area2D
 
 @export var stats: UnitStats : set = set_stats
 
-@onready var skin: Sprite2D = $Visuals/Skin
+@onready var skin: PackedSprite2D = $Visuals/Skin
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
@@ -28,7 +28,7 @@ func set_stats(value: UnitStats) -> void:
 	if not is_node_ready():
 		await ready
 	
-	skin.region_rect.position = Vector2(stats.skin_coordinates) * Arena.CELL_SIZE
+	skin.coordinates = stats.skin_coordinates
 
 
 func reset_after_dragging(starting_position: Vector2) -> void:
