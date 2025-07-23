@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://nmagwgfq5sh6"]
+[gd_scene load_steps=12 format=3 uid="uid://nmagwgfq5sh6"]
 
 [ext_resource type="Script" uid="uid://c0264l466ro12" path="res://Scenes/battle_unit/battle_unit.gd" id="1_kx733"]
 [ext_resource type="Texture2D" uid="uid://b804rgdbdcbwx" path="res://Assets/rogues.png" id="1_vwswx"]
 [ext_resource type="Script" uid="uid://d077xoc6cueo6" path="res://Components/packed_sprite2d.gd" id="2_kx733"]
+[ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="2_mwr1c"]
 [ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="3_mwr1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6svng"]
@@ -157,6 +158,7 @@ _data = {
 
 [node name="BattleUnit" type="Area2D"]
 script = ExtResource("1_kx733")
+stats = ExtResource("2_mwr1c")
 
 [node name="Skin" type="Sprite2D" parent="."]
 skew = 0.0139911
