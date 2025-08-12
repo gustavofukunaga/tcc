@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ns2hg")
-current_phase = 1
+current_phase = 0
 metadata/_custom_type_script = "uid://dmphi2qgqrcvx"

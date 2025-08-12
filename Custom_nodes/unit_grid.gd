@@ -54,3 +54,13 @@ func get_all_units() -> Array[Unit]:
 			unit_array.append(unit)
 	
 	return unit_array
+
+
+func get_all_occupied_tiles() -> Array[Vector2i]:
+	var tile_array: Array[Vector2i] = []
+	
+	for tile: Vector2i in units.keys():
+		if units[tile]:
+			tile_array.append(tile)
+	
+	return tile_array
