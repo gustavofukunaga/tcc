@@ -41,11 +41,11 @@ func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
 func _clean_up_fight() -> void:
 	get_tree().call_group("player_units", "queue_free")
 	get_tree().call_group("enemy_units", "queue_free")
-	get_tree().call_group("units", "show")
+	get_tree().call_group("Units", "show")
 
 
 func _prepare_fight() -> void:
-	get_tree().call_group("units", "hide")
+	get_tree().call_group("Units", "hide")
 	
 	for unit_coord: Vector2i in game_area_unit_grid.get_all_occupied_tiles():
 		var unit: Unit = game_area_unit_grid.units[unit_coord]
