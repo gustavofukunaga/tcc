@@ -5,6 +5,7 @@ extends Area2D
 
 @onready var skin: PackedSprite2D = $Skin
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var unit_ai: UnitAI = $UnitAI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://nmagwgfq5sh6"]
+[gd_scene load_steps=14 format=3 uid="uid://nmagwgfq5sh6"]
 
 [ext_resource type="Script" uid="uid://c0264l466ro12" path="res://Scenes/battle_unit/battle_unit.gd" id="1_kx733"]
 [ext_resource type="Texture2D" uid="uid://b804rgdbdcbwx" path="res://Assets/rogues.png" id="1_vwswx"]
 [ext_resource type="Script" uid="uid://d077xoc6cueo6" path="res://Components/packed_sprite2d.gd" id="2_kx733"]
 [ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="2_mwr1c"]
 [ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="3_mwr1c"]
+[ext_resource type="Script" uid="uid://b0jfaumn8d3o" path="res://Components/finite_state_machine.gd" id="6_6svng"]
+[ext_resource type="Script" uid="uid://c42nbbnb3c5sv" path="res://Scenes/battle_unit/ai/unit_ai.gd" id="7_3nmhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6svng"]
 size = Vector2(36, 36)
@@ -177,6 +179,24 @@ offset_left = -7.0
 offset_top = -21.0
 offset_right = 9.0
 offset_bottom = -17.0
+
+[node name="FSMDebugLabel" type="Label" parent="."]
+offset_left = -65.0
+offset_top = -36.0
+offset_right = 65.0
+offset_bottom = -18.0
+horizontal_alignment = 1
+
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_label")]
+script = ExtResource("6_6svng")
+debug_label = NodePath("../FSMDebugLabel")
+metadata/_custom_type_script = "uid://b0jfaumn8d3o"
+
+[node name="UnitAI" type="Node" parent="." node_paths=PackedStringArray("actor", "fsm")]
+script = ExtResource("7_3nmhm")
+actor = NodePath("..")
+fsm = NodePath("../FiniteStateMachine")
+metadata/_custom_type_script = "uid://c42nbbnb3c5sv"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
