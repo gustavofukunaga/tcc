@@ -20,6 +20,10 @@ signal enemy_won
 
 @onready var scene_spawner: SceneSpawner = $SceneSpawner
 
+var player_test: BattleUnit
+var enemy_test: BattleUnit
+var player_target: BattleUnit
+var enemy_target: BattleUnit
 
 func _ready() -> void:
 	game_state.changed.connect(_on_game_state_changed)
@@ -27,9 +31,16 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test1"):
-		get_tree().call_group("player_units", "queue_free")
+		var new_pos := UnitNavigation.get_next_position(player_test, player_target)
+		if new_pos == Vector2(-1, -1):
+			return
+		player_test.create_tween().tween_property(player_test, "global_position", new_pos, 0.5)
+
 	if event.is_action_pressed("test2"):
-		get_tree().call_group("enemy_units", "queue_free")
+		var new_pos := UnitNavigation.get_next_position(enemy_test, enemy_target)
+		if new_pos == Vector2(-1, -1):
+			return
+		enemy_test.create_tween().tween_property(enemy_test, "global_position", new_pos, 0.5)
 
 
 func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
@@ -61,7 +72,11 @@ func _prepare_fight() -> void:
 		new_unit.stats = ZOMBIE
 		new_unit.stats.team = UnitStats.Team.ENEMY
 		_setup_battle_unit(unit_coord, new_unit)
-
+	
+	player_test = get_tree().get_nodes_in_group("player_units") [1]
+	enemy_test = get_tree().get_nodes_in_group("enemy_units") [1]
+	player_target = get_tree().get_nodes_in_group("enemy_units").pick_random()
+	enemy_target = get_tree().get_nodes_in_group("player_units").pick_random()
 
 func _on_battle_unit_died() -> void:
 	# We already concluded the battle!

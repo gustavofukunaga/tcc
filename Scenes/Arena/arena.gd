@@ -5,6 +5,8 @@ const CELL_SIZE := Vector2(32, 32)
 const HALF_CELL_SIZE := Vector2(16, 16)
 const QUARTER_CELL_SIZE := Vector2(8, 8)
 
+@onready var game_area: PlayArea = $GameArea
+@onready var battle_unit_grid: UnitGrid = $GameArea/BattleUnitGrid
 @onready var item_mover: ItemMover = $ItemMover
 @onready var item_spawner: ItemSpawner = $ItemSpawner
 @onready var valid_tiles_highlighter: ValidTilesHighlighter = $UnitGroup/ValidTilesHighlighter
@@ -14,3 +16,4 @@ func _ready() -> void:
 	item_spawner.item_spawned.connect(item_mover.setup_item)
 	item_spawner.item_spawned.connect(valid_tiles_highlighter.setup_item)
 	shop.item_bought.connect(item_spawner.spawn_item)
+	UnitNavigation.initialize(battle_unit_grid, game_area)
