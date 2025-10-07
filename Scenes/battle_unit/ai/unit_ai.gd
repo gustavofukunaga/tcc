@@ -1,11 +1,20 @@
 class_name UnitAI
 extends Node
 
+@export var debug_label: Label
 @export var enabled: bool: set = set_enabled
 @export var actor: BattleUnit
-@export var fsm: FiniteStateMachine
 
+var fsm: FiniteStateMachine
 
+func _ready() -> void:
+	fsm = FiniteStateMachine.new()
+	fsm.state_changed.connect(
+		func(new_state: State):
+			if not debug_label:
+				return
+			debug_label.text = new_state.get_script().get_global_name()
+	)
 func set_enabled(value: bool) -> void:
 	enabled = value
 	

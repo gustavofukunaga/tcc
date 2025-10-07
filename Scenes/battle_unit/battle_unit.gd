@@ -22,3 +22,4 @@ func set_stats(value: UnitStats) -> void:
 	skin.texture = UnitStats.TEAM_SPRITESHEET[stats.team]
 	skin.coordinates = stats.skin_coordinates
 	skin.flip_h = stats.team == stats.Team.PLAYER
+	health_bar.stats = stats
