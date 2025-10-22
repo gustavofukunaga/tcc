@@ -17,5 +17,5 @@ attack_damage = Array[int]([2, 5, 8])
 ability_power = 0
 attack_speed = 0.75
 armor = 0
-attack_range = 0
+attack_range = 1
 metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"
