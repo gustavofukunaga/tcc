@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://cu4dgk3miuwt5"]
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://cu4dgk3miuwt5"]
 
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://scenes/_effects/attack_smear_effect.tscn" id="1_3feko"]
 [ext_resource type="Script" uid="uid://b5xwqcu3p6jfw" path="res://Data/Units/unit_stats.gd" id="1_7olvk"]
 
 [resource]
@@ -18,4 +19,5 @@ ability_power = 0
 attack_speed = 0.75
 armor = 0
 attack_range = 1
+melee_attack = ExtResource("1_3feko")
 metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"
