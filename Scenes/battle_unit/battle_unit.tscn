@@ -6,10 +6,10 @@
 [ext_resource type="Resource" uid="uid://cu4dgk3miuwt5" path="res://Data/Units/bram.tres" id="2_mwr1c"]
 [ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="3_mwr1c"]
 [ext_resource type="Script" uid="uid://c5xultkdxcfn8" path="res://Components/hurtbox.gd" id="5_3nmhm"]
-[ext_resource type="Script" path="res://Custom_nodes/detect_range.gd" id="5_gai5e"]
+[ext_resource type="Script" uid="uid://djt4mvnkhj50" path="res://Custom_nodes/detect_range.gd" id="5_gai5e"]
 [ext_resource type="Script" uid="uid://c42nbbnb3c5sv" path="res://Scenes/battle_unit/ai/unit_ai.gd" id="7_3nmhm"]
 [ext_resource type="Script" uid="uid://dmfk5l03eiqpg" path="res://Components/flip_sprite.gd" id="8_oxnch"]
-[ext_resource type="Script" path="res://Custom_nodes/target_finder.gd" id="8_p7yiw"]
+[ext_resource type="Script" uid="uid://btnf4etxvlg3m" path="res://Custom_nodes/target_finder.gd" id="8_p7yiw"]
 [ext_resource type="Script" uid="uid://bl8i2mppmae5b" path="res://Components/attack.gd" id="9_1qy7s"]
 [ext_resource type="Script" uid="uid://bgluqq6gaukyq" path="res://Components/scene_spawner.gd" id="10_dsxh2"]
 
