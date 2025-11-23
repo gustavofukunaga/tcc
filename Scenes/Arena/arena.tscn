@@ -187,6 +187,7 @@ item_bench_highlight_layer = NodePath("../ItemBenchHighlight")
 tile = Vector2i(3, 0)
 
 [node name="UnitNavigationDebug" type="Node2D" parent="." node_paths=PackedStringArray("game_area")]
+visible = false
 position = Vector2(192, 64)
 script = ExtResource("10_d81lm")
 color = Color(1, 0, 0, 0.498039)

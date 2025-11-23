@@ -213,6 +213,7 @@ offset_bottom = -17.0
 metadata/_edit_use_anchors_ = true
 
 [node name="FSMDebugLabel" type="Label" parent="."]
+visible = false
 offset_left = -65.0
 offset_top = -36.0
 offset_right = 65.0
@@ -237,6 +238,18 @@ spawner = NodePath("MeleeAttackSpawner")
 metadata/_custom_type_script = "uid://bl8i2mppmae5b"
 
 [node name="MeleeAttackSpawner" type="Node" parent="MeleeAttack"]
+script = ExtResource("10_dsxh2")
+metadata/_custom_type_script = "uid://bgluqq6gaukyq"
+
+[node name="RangedAttack" type="Node" parent="." node_paths=PackedStringArray("parent", "anchor", "spawn_point", "spawner")]
+script = ExtResource("9_1qy7s")
+parent = NodePath("..")
+anchor = NodePath("../AttackAnchor")
+spawn_point = NodePath("../AttackAnchor/AttackMarker")
+spawner = NodePath("ProjectileSpawner")
+metadata/_custom_type_script = "uid://bl8i2mppmae5b"
+
+[node name="ProjectileSpawner" type="Node" parent="RangedAttack"]
 script = ExtResource("10_dsxh2")
 metadata/_custom_type_script = "uid://bgluqq6gaukyq"
 
