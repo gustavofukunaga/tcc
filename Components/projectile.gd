@@ -53,6 +53,7 @@ func _on_child_entered_tree(child: Node) -> void:
 		visibility_notifier = child as VisibleOnScreenNotifier2D
 		visibility_notifier.screen_exited.connect(queue_free)
 
+	add_to_group("projectiles")
 
 func _on_child_exiting_tree(child: Node) -> void:
 	if not Engine.is_editor_hint():

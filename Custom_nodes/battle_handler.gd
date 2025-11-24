@@ -35,6 +35,8 @@ func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
 func _clean_up_fight() -> void:
 	get_tree().call_group("player_units", "queue_free")
 	get_tree().call_group("enemy_units", "queue_free")
+	get_tree().call_group("unit_abilities", "queue_free")
+	get_tree().call_group("projectiles", "queue_free")
 	get_tree().call_group("Units", "show")
 
 

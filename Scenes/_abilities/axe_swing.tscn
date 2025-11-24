@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0yisw37t1e0g"]
+
+[ext_resource type="Script" uid="uid://cqbw7fqxrjx35" path="res://Scenes/_abilities/axe_swing.gd" id="1_n81fn"]
+[ext_resource type="Texture2D" uid="uid://dxcdu20yfc72" path="res://Assets/sprites/items.png" id="2_uqd2l"]
+[ext_resource type="Texture2D" uid="uid://pqbmrlxdbamv" path="res://Assets/sprites/effects_projectiles/bjorn_cast_smear.png" id="3_32e7i"]
+[ext_resource type="Script" uid="uid://6w4yaos755r" path="res://Components/hitbox.gd" id="4_gofxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28kry"]
+size = Vector2(9, 20)
+
+[sub_resource type="Animation" id="Animation_ofqm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smear:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smear:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dmjib"]
+resource_name = "Swing"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.15, 0.3, 0.55, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1.1, 1.1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Smear:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.55, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Smear:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nb72g"]
+_data = {
+&"RESET": SubResource("Animation_ofqm8"),
+&"swing": SubResource("Animation_dmjib")
+}
+
+[node name="AxeSwing" type="Node2D"]
+script = ExtResource("1_n81fn")
+base_damage_per_tier = Array[int]([10])
+metadata/_custom_type_script = "uid://ccq2as4oyb7gl"
+
+[node name="Weapon" type="Sprite2D" parent="."]
+position = Vector2(-16, -16)
+texture = ExtResource("2_uqd2l")
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 32)
+
+[node name="Smear" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(-16, -16)
+rotation = -1.69297
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_32e7i")
+flip_h = true
+hframes = 2
+frame = 1
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(-16, -16)
+script = ExtResource("4_gofxx")
+metadata/_custom_type_script = "uid://6w4yaos755r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_28kry")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nb72g")
+}

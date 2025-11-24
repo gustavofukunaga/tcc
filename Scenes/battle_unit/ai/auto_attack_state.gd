@@ -54,7 +54,8 @@ func _on_attack_hit() -> void:
 	if not target:
 		return
 	
-	#actor_unit.stats.mana += UnitStats.MANA_PER_ATTACK
+	actor_unit.stats.mana += UnitStats.MANA_PER_ATTACK
+
 	if target.stats.health <= 0:
 		target_died.emit()
 

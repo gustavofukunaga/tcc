@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78xgtn2fbplx"]
+
+[ext_resource type="Script" uid="uid://ddibra542isdj" path="res://Scenes/_abilities/hail_of_arrows.gd" id="1_8ajoo"]
+
+[node name="HailOfArrows" type="Node2D"]
+script = ExtResource("1_8ajoo")
+extra_shots_per_tier = Array[int]([3, 2, 3])
+time_between_extra_shots = 0.15
+metadata/_custom_type_script = "uid://ccq2as4oyb7gl"

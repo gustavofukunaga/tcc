@@ -1,7 +1,7 @@
 class_name ChaseState
 extends State
 
-signal target_reached(target: BattleUnit)
+signal target_reached(target)
 signal stuck
 
 var actor_unit: BattleUnit

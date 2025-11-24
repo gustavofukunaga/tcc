@@ -25,7 +25,7 @@ const TEAM_SPRITESHEET := {
 }
 
 const MAX_ATTACK_RANGE := 5
-const MANA_PER_ATTACK := 10
+const MANA_PER_ATTACK := 1
 const MOVE_ONE_TILE_SPEED := 1.0
 
 @export var name: String
