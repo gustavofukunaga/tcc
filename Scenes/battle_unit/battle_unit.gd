@@ -25,7 +25,7 @@ func set_stats(value: UnitStats) -> void:
 	if not stats or not is_instance_valid(health_bar):
 		return
 
-	stats = value.duplicate()
+	stats = value
 	collision_layer = stats.get_team_collision_layer()
 	hurt_box.collision_layer = stats.get_team_collision_layer()
 	hurt_box.collision_mask = stats.get_team_collision_mask()

@@ -58,7 +58,8 @@ var mana: int : set = _set_mana
 
 
 func reset_health() -> void:
-	health = get_max_health()
+	if health == 0 or team == Team.ENEMY:
+		health = get_max_health()
 
 
 func reset_mana() -> void:
@@ -66,7 +67,6 @@ func reset_mana() -> void:
 
 
 func get_max_health() -> int:
-	print(max_health)
 	return max_health[tier-1]
 
 

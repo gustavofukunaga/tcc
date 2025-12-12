@@ -11,6 +11,8 @@ extends Area2D
 
 signal unit_picked
 signal unit_dropped
+signal unit_died
+
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
@@ -29,7 +31,16 @@ func set_stats(value: UnitStats) -> void:
 		await ready
 	
 	skin.coordinates = stats.skin_coordinates
+	health_bar.stats = stats
+	stats.reset_health()
+	stats.health_reached_zero.connect(_on_health_reached_zero)
 
+
+func _on_health_reached_zero() -> void:
+	remove_from_group("Units")
+	add_to_group("dead_units")
+	get_tree().call_group("dead_units", "hide")
+	unit_died.emit()
 
 func reset_after_dragging(starting_position: Vector2) -> void:
 	global_position = starting_position
@@ -37,10 +48,10 @@ func reset_after_dragging(starting_position: Vector2) -> void:
 
 func _on_drag_started() -> void:
 	unit_picked.emit()
-	pass
 
 
 func _on_dropped(starting_position: Vector2) -> void:
+	#stats.health += 1
 	unit_dropped.emit()
 
 

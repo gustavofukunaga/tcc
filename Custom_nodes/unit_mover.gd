@@ -15,6 +15,7 @@ func setup_unit(unit: Unit) -> void:
 	unit.drag_and_drop.drag_started.connect(_on_unit_drag_started.bind(unit))
 	unit.drag_and_drop.drag_canceled.connect(_on_unit_drag_canceled.bind(unit))
 	unit.drag_and_drop.dropped.connect(_on_unit_dropped.bind(unit))
+	unit.unit_died.connect(_on_unit_died.bind(unit))
 
 
 func _set_highlighters(enabled: bool) -> void:
@@ -86,3 +87,13 @@ func _on_unit_dropped(starting_position: Vector2, unit: Unit) -> void:
 		_move_unit(old_unit, old_area, old_tile)
 	
 	_move_unit(unit, new_area, new_tile)
+
+func _on_unit_died(unit: Unit) -> void:
+	#get_tree().call_group("dead_units", "show")
+	var battle_area: PlayArea = play_areas[0]
+	var bench_area: PlayArea = play_areas[1]
+	
+	var old_tile := battle_area.get_tile_from_global(unit.global_position)
+	var free_tile: Vector2 = bench_area.unit_grid.get_first_empty_tile()
+	_move_unit(unit, bench_area, free_tile)
+	battle_area.unit_grid.remove_unit(old_tile)

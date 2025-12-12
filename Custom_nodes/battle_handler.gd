@@ -2,10 +2,10 @@ class_name BattleHandler
 extends Node
 
 const ZOMBIE_TEST_POSITIONS := [
-	Vector2i(6, 1),
-	Vector2i(5, 4),
-	Vector2i(6, 3),
-	Vector2i(7, 0),
+	#Vector2i(6, 1),
+	#Vector2i(5, 4),
+	#Vector2i(6, 3),
+	#Vector2i(7, 0),
 	Vector2i(7, 3)
 ]
 const ZOMBIE := preload("res://data/enemies/zombie.tres")
@@ -33,6 +33,7 @@ func _setup_battle_unit(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
 
 
 func _clean_up_fight() -> void:
+	#await get_tree().create_timer(5.0).timeout
 	get_tree().call_group("player_units", "queue_free")
 	get_tree().call_group("enemy_units", "queue_free")
 	get_tree().call_group("unit_abilities", "queue_free")
