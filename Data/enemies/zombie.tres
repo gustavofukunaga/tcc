@@ -6,9 +6,15 @@
 [resource]
 script = ExtResource("1_l0pyw")
 name = "Zombie"
+skin_coordinates = Vector2i(0, 0)
 team = 1
-max_health = Array[int]([18, 22, 25])
-attack_damage = Array[int]([8, 4, 6])
+max_health = 300
+max_mana = 5
+starting_mana = 0
+attack_damage = 7
+ability_power = 3
 attack_speed = 0.7
+armor = 0
 attack_range = 1
+melee_attack = ExtResource("1_qf74j")
 metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

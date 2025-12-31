@@ -6,7 +6,8 @@ extends ProgressBar
 
 func _set_stats(new_stats: UnitStats) -> void:
 	stats = new_stats
-	stats.changed.connect(_on_stats_changed)
+	if not stats.changed.is_connected(_on_stats_changed):
+		stats.changed.connect(_on_stats_changed)
 	_on_stats_changed()
 
 

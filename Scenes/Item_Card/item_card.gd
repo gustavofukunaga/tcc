@@ -51,6 +51,7 @@ func _set_item_stats(value: ItemStats) -> void:
 	item_name.text = item_stats.name
 	gold_cost.text = str(item_stats.gold_cost)
 	item_icon.texture.region.position = Vector2(item_stats.skin_coordinates) * Arena.CELL_SIZE
+	traits.text = _get_item_type(item_stats.type)
 
 
 func _on_player_stats_changed() -> void:
@@ -83,3 +84,6 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	border_sb.border_color = border_color
+
+func _get_item_type(type: String) -> String:
+	return type.replace(" ", "\n")

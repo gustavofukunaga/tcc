@@ -1,7 +1,7 @@
 class_name HailOfArrows
 extends UnitAbility
 
-@export var extra_shots_per_tier: Array[int]
+#@export var extra_shots: Array[int]
 @export var time_between_extra_shots: float
 
 
@@ -9,7 +9,7 @@ func use() -> void:
 	var all_enemies := get_tree().get_nodes_in_group(UnitStats.TARGET[caster.stats.team])
 	var tween := caster.create_tween()
 	
-	for _i in extra_shots_per_tier[caster.stats.tier-1]:
+	for _i in caster.stats.ability_power:
 		tween.tween_interval(time_between_extra_shots)
 		tween.tween_callback(_spawn_extra_projectile.bind(all_enemies))
 

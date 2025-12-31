@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_bj1b6")
 name = "Hammer"
+type = "Special Ability"
 rarity = 1
 gold_cost = 3
 pool_count = 5

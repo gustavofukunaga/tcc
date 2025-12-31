@@ -65,7 +65,7 @@ func _on_item_dropped(starting_position: Vector2, item: Item) -> void:
 
 	var old_area_index := _get_play_area_for_position(starting_position)
 	var drop_area_index := _get_play_area_for_position(item.get_global_mouse_position())
-	
+
 	if drop_area_index == -1:
 		_reset_item_to_starting_position(starting_position, item)
 		return

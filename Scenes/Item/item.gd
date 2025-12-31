@@ -8,6 +8,9 @@ extends Area2D
 @onready var background: Polygon2D = $Visuals/Background
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var outline_highlighter: OutlineHighlighter = $OutlineHighlighter
+@onready var items_handler: ItemsHandler = $ItemsHandler
+
+var hovered_unit: Area2D
 
 signal item_picked
 signal item_dropped
@@ -36,12 +39,27 @@ func reset_after_dragging(starting_position: Vector2) -> void:
 	global_position = starting_position
 
 
+func apply_item_effect() -> void:
+	print(stats.name, " dropped on ", hovered_unit.stats.name)
+	
+
+
 func _on_drag_started() -> void:
 	item_picked.emit()
 	pass
 
 
-func _on_dropped(starting_position: Vector2) -> void:
+func _on_dropped(_starting_position: Vector2) -> void:
+	var units = get_tree().get_nodes_in_group("hovered_unit")
+	if units:
+		hovered_unit = units[0]
+	
+	if hovered_unit:
+		print(stats.name, " dropped on ", hovered_unit.stats.name)
+		items_handler.apply_item_effect(stats, hovered_unit)
+		queue_free()
+		return
+
 	item_dropped.emit()
 
 

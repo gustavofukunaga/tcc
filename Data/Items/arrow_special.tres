@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://b1ynvpqy35n6b"]
+
+[ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_ogaew"]
+
+[resource]
+script = ExtResource("1_ogaew")
+name = "Super"
+type = "Special Ability"
+rarity = 2
+gold_cost = 4
+pool_count = 3
+skin_coordinates = Vector2i(3, 23)
+metadata/_custom_type_script = "uid://cwm0usltptrtm"

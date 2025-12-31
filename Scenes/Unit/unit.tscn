@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://dye12q485wwdu" path="res://Components/outline_highlighter.gd" id="6_jbdwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpyh"]
-size = Vector2(36, 36)
+size = Vector2(32, 32)
 
 [node name="Unit" type="Area2D" groups=["Units"]]
 script = ExtResource("1_15sed")
@@ -21,7 +21,7 @@ metadata/_edit_group_ = true
 material = ExtResource("3_ulevp")
 
 [node name="Skin" type="Sprite2D" parent="Visuals"]
-position = Vector2(16, 8)
+position = Vector2(16, 12)
 texture = ExtResource("1_hgpyh")
 region_enabled = true
 region_rect = Rect2(0, 192, 32, 32)
@@ -29,10 +29,13 @@ script = ExtResource("5_2itl1")
 coordinates = Vector2i(0, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 8)
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_hgpyh")
 
 [node name="HealthBar" parent="." instance=ExtResource("5_kakeo")]
+offset_top = -8.0
+offset_bottom = -4.0
+stats = ExtResource("2_2itl1")
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_iuf4a")

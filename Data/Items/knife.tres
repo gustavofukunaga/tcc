@@ -1,12 +1,23 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://csbl0xjlpdu53"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://csbl0xjlpdu53"]
 
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://scenes/_effects/attack_smear_effect.tscn" id="1_dj7b4"]
 [ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_ounty"]
 
 [resource]
 script = ExtResource("1_ounty")
 name = "Knife"
+type = "Stat Bonus"
 rarity = 0
 gold_cost = 2
 pool_count = 5
 skin_coordinates = Vector2i(5, 0)
+max_health = 0
+max_mana = 0
+starting_mana = 0
+attack_damage = 1000
+ability_power = 0
+attack_speed = 0.0
+armor = 0
+attack_range = 0
+melee_attack = ExtResource("1_dj7b4")
 metadata/_custom_type_script = "uid://cwm0usltptrtm"

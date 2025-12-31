@@ -271,3 +271,6 @@ metadata/_custom_type_script = "uid://c42nbbnb3c5sv"
 libraries = {
 &"": SubResource("AnimationLibrary_3nmhm")
 }
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

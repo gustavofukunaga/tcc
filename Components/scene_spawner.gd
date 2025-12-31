@@ -5,6 +5,8 @@ extends Node
 
 
 func spawn_scene(parent: Node = owner) -> Node:
+	if not scene:
+		return null
 	var new_scene := scene.instantiate()
 	parent.add_child(new_scene)
 	

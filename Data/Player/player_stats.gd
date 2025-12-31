@@ -2,9 +2,12 @@ class_name PlayerStats
 extends Resource
 
 const ROLL_RARITIES := {
-	1:  [UnitStats.Rarity.COMMON],
-	2:  [UnitStats.Rarity.COMMON],
-	3:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON],
+	#1:  [UnitStats.Rarity.COMMON],
+	1:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
+	2:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
+	3:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
+	#2:  [UnitStats.Rarity.COMMON],
+	#3:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON],
 	4:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
 	5:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
 	6:  [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE],
@@ -14,9 +17,12 @@ const ROLL_RARITIES := {
 	10: [UnitStats.Rarity.COMMON, UnitStats.Rarity.UNCOMMON, UnitStats.Rarity.RARE, UnitStats.Rarity.LEGENDARY],
 }
 const ROLL_CHANCES := {
-	1: [1],
-	2: [1],
-	3: [7.5, 2.5],
+	#1: [1],
+	1: [1.0, 2.0, 4.5, 2.5],
+	2: [1.0, 2.0, 4.5, 2.5],
+	3: [1.0, 2.0, 4.5, 2.5],
+	#2: [1],
+	#3: [7.5, 2.5],
 	4: [6.5, 3.0, 0.5],
 	5: [5.0, 3.5, 1.5],
 	6: [4.0, 4.0, 2.0],

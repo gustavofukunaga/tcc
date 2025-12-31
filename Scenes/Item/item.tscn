@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu0p362yp4ive"]
+[gd_scene load_steps=9 format=3 uid="uid://bu0p362yp4ive"]
 
 [ext_resource type="Script" uid="uid://dc681uq3tcuiu" path="res://Scenes/Item/item.gd" id="1_i10cy"]
 [ext_resource type="Resource" uid="uid://csbl0xjlpdu53" path="res://Data/Items/knife.tres" id="2_ab5lp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq3pgyyo7wana" path="res://Assets/items.png" id="3_ab5lp"]
 [ext_resource type="Script" uid="uid://dsyg84iqicbhl" path="res://Components/drag_and_drop.gd" id="4_r4u4p"]
 [ext_resource type="Script" uid="uid://dye12q485wwdu" path="res://Components/outline_highlighter.gd" id="5_kutj8"]
+[ext_resource type="Script" uid="uid://b662gti4kwvuu" path="res://Custom_nodes/items_handler.gd" id="7_r4u4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0px54"]
 size = Vector2(36, 36)
@@ -44,6 +45,10 @@ script = ExtResource("5_kutj8")
 visuals = NodePath("../Visuals")
 outline_color = Color(0.980392, 0.980392, 0.509804, 1)
 outline_thickness = 1
+
+[node name="ItemsHandler" type="Node" parent="."]
+script = ExtResource("7_r4u4p")
+metadata/_custom_type_script = "uid://b662gti4kwvuu"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

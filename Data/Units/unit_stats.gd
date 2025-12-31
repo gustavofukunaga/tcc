@@ -6,14 +6,7 @@ signal mana_bar_filled
 
 enum Rarity {COMMON, UNCOMMON, RARE, LEGENDARY}
 enum Team {PLAYER, ENEMY}
-
-const RARITY_COLORS := {
-	Rarity.COMMON: Color("124a2e"),
-	Rarity.UNCOMMON: Color("1c527c"),
-	Rarity.RARE: Color("ab0979"),
-	Rarity.LEGENDARY: Color("ea940b"),
-}
-
+ 
 const TARGET := {
 	Team.PLAYER: "enemy_units",
 	Team.ENEMY: "player_units"
@@ -30,20 +23,16 @@ const MOVE_ONE_TILE_SPEED := 1.0
 
 @export var name: String
 
-@export_category("Data")
-@export var rarity: Rarity 
-@export var gold_cost := 1
-@export_range(1, 3) var tier := 1 : set = _set_tier
 
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
 
 @export_category("Battle")
 @export var team: Team
-@export var max_health: Array[int]
+@export var max_health: int
 @export var max_mana: int
 @export var starting_mana: int
-@export var attack_damage: Array[int]
+@export var attack_damage: int
 @export var ability_power: int
 @export var attack_speed: float
 @export var armor: int
@@ -51,7 +40,7 @@ const MOVE_ONE_TILE_SPEED := 1.0
 @export var melee_attack: PackedScene = preload("res://scenes/_effects/attack_smear_effect.tscn")
 @export var ranged_attack: PackedScene
 @export var ability: PackedScene
-@export var auto_attack_sound: AudioStream
+#@export var auto_attack_sound: AudioStream
 
 var health: int : set = _set_health
 var mana: int : set = _set_mana
@@ -67,20 +56,16 @@ func reset_mana() -> void:
 
 
 func get_max_health() -> int:
-	return max_health[tier-1]
+	return max_health
 
 
 func get_attack_damage() -> int:
-	return attack_damage[tier-1]
+	return attack_damage
 
 
 func is_melee() -> bool:
 	return attack_range == 1
 
-
-func _set_tier(value: int) -> void:
-	tier = value
-	emit_changed()
 
 func get_time_between_attacks() -> float:
 	return 1 / attack_speed

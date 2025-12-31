@@ -44,3 +44,11 @@ func set_stats(value: UnitStats) -> void:
 
 func _on_hurt(damage: int) -> void:
 	stats.health -= damage
+
+func _on_mouse_entered() -> void:
+	if stats.team == stats.Team.PLAYER:
+		add_to_group("hovered_unit")
+
+func _on_mouse_exited() -> void:
+	if stats.team == stats.Team.PLAYER:
+		remove_from_group("hovered_unit")

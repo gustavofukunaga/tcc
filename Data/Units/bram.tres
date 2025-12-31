@@ -6,14 +6,15 @@
 [resource]
 script = ExtResource("1_7olvk")
 name = "Bram"
-rarity = 2
 skin_coordinates = Vector2i(0, 6)
-max_health = Array[int]([40, 50, 60])
-current_health = 40
-max_mana = 50
-starting_mana = 15
-attack_damage = Array[int]([1, 5, 8])
+team = 0
+max_health = 100
+max_mana = 4
+starting_mana = 0
+attack_damage = 6
+ability_power = 2
 attack_speed = 0.5
+armor = 0
 attack_range = 1
 melee_attack = ExtResource("1_3feko")
 metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

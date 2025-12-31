@@ -11,6 +11,7 @@ const RARITY_COLORS := {
 }
 
 @export var name: String
+@export var type: String
 
 @export_category("Data")
 @export var rarity: Rarity 
@@ -19,6 +20,20 @@ const RARITY_COLORS := {
 
 @export_category("Visuals")
 @export var skin_coordinates: Vector2i
+
+@export_category("Battle")
+@export var max_health: int
+@export var health: int
+@export var max_mana: int
+@export var starting_mana: int
+@export var attack_damage: int
+@export var ability_power: int
+@export var attack_speed: float
+@export var armor: int
+@export var attack_range: int
+@export var melee_attack: PackedScene = preload("res://scenes/_effects/attack_smear_effect.tscn")
+@export var ranged_attack: PackedScene
+@export var ability: PackedScene
 
 
 func _to_string() -> String:

@@ -33,7 +33,8 @@ func set_stats(value: UnitStats) -> void:
 	skin.coordinates = stats.skin_coordinates
 	health_bar.stats = stats
 	stats.reset_health()
-	stats.health_reached_zero.connect(_on_health_reached_zero)
+	if not stats.health_reached_zero.is_connected(_on_health_reached_zero):
+		stats.health_reached_zero.connect(_on_health_reached_zero)
 
 
 func _on_health_reached_zero() -> void:
@@ -50,7 +51,7 @@ func _on_drag_started() -> void:
 	unit_picked.emit()
 
 
-func _on_dropped(starting_position: Vector2) -> void:
+func _on_dropped(_starting_position: Vector2) -> void:
 	#stats.health += 1
 	unit_dropped.emit()
 
@@ -66,7 +67,7 @@ func _on_mouse_entered() -> void:
 	
 	outline_highlighter.highlight()
 	z_index = 1
-
+	add_to_group("hovered_unit")
 
 func _on_mouse_exited() -> void:
 	if drag_and_drop.dragging:
@@ -74,3 +75,4 @@ func _on_mouse_exited() -> void:
 	
 	outline_highlighter.clear_highlight()
 	z_index = 0
+	remove_from_group("hovered_unit")
