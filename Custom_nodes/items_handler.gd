@@ -7,8 +7,8 @@ func apply_item_effect(item: ItemStats, unit: Area2D):
 	#unit.stats.max_mana += item.max_mana
 	#unit.stats.starting_mana += item.starting_mana
 	unit.stats.attack_damage += item.attack_damage
-	#unit.stats.ability_power += item.ability_power
-	#unit.stats.attack_speed += item.attack_speed
+	unit.stats.ability_power += item.ability_power
+	unit.stats.attack_speed += item.attack_speed
 	#unit.stats.armor += item.armor
 	unit.stats.attack_range += item.attack_range
 	#unit.stats.melee_attack = preload("res://scenes/_effects/attack_smear_effect.tscn")

@@ -144,7 +144,6 @@ _data = {
 
 [node name="AxeSwing" type="Node2D"]
 script = ExtResource("1_n81fn")
-base_damage_per_tier = Array[int]([10])
 metadata/_custom_type_script = "uid://ccq2as4oyb7gl"
 
 [node name="Weapon" type="Sprite2D" parent="."]

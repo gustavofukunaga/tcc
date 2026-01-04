@@ -11,7 +11,7 @@ func use() -> void:
 	hit_box.damage = caster.stats.ability_power
 	hit_box.collision_layer = caster.stats.get_team_collision_layer()
 	hit_box.collision_mask = caster.stats.get_team_collision_mask()
-	hit_box.damage += caster.stats.ability_power
+
 
 	#SFXPlayer.play(sound)
 	animation_player.play("swing")

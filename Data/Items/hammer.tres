@@ -1,13 +1,27 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://c4uvwindpxl1i"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://c4uvwindpxl1i"]
 
 [ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_bj1b6"]
+[ext_resource type="PackedScene" uid="uid://c0yisw37t1e0g" path="res://Scenes/_abilities/axe_swing.tscn" id="1_kvrho"]
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://scenes/_effects/attack_smear_effect.tscn" id="2_x80lu"]
 
 [resource]
 script = ExtResource("1_bj1b6")
-name = "Hammer"
+name = "Swing"
+description = "Axe Swing +40 AP"
 type = "Special Ability"
 rarity = 1
 gold_cost = 3
 pool_count = 5
 skin_coordinates = Vector2i(4, 4)
+max_health = 0
+health = 0
+max_mana = 0
+starting_mana = 0
+attack_damage = 0
+ability_power = 40
+attack_speed = 0.0
+armor = 0
+attack_range = 0
+melee_attack = ExtResource("2_x80lu")
+ability = ExtResource("1_kvrho")
 metadata/_custom_type_script = "uid://cwm0usltptrtm"

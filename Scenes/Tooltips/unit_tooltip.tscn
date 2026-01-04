@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://csp1w1jnfbwul"]
+[gd_scene load_steps=8 format=3 uid="uid://csp1w1jnfbwul"]
 
 [ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="1_jm2ea"]
 [ext_resource type="Script" uid="uid://clym6ajqs0u60" path="res://Scenes/Tooltips/unit_tooltip.gd" id="1_qr1tc"]
 [ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://Assets/font/m5x7.ttf" id="2_qr1tc"]
 [ext_resource type="PackedScene" uid="uid://cow562e0hvt3s" path="res://Scenes/ItemUI/item_ui.tscn" id="3_l4ifx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l4ifx"]
+font = ExtResource("2_qr1tc")
 
 [sub_resource type="LabelSettings" id="LabelSettings_8jbxt"]
 font = ExtResource("2_qr1tc")
@@ -27,6 +30,61 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Frod
 "
+
+[node name="UnitStats" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AD" type="HBoxContainer" parent="UnitStats"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="UnitStats/AD"]
+layout_mode = 2
+text = "AD:"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="number" type="Label" parent="UnitStats/AD"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="AP" type="HBoxContainer" parent="UnitStats"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="UnitStats/AP"]
+layout_mode = 2
+text = "AP:"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="number" type="Label" parent="UnitStats/AP"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="ATK Speed" type="HBoxContainer" parent="UnitStats"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="UnitStats/ATK Speed"]
+layout_mode = 2
+text = "ATK Speed:"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="number" type="Label" parent="UnitStats/ATK Speed"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="ATK Range" type="HBoxContainer" parent="UnitStats"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="UnitStats/ATK Range"]
+layout_mode = 2
+text = "ATK Range:"
+label_settings = SubResource("LabelSettings_l4ifx")
+
+[node name="number" type="Label" parent="UnitStats/ATK Range"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_l4ifx")
 
 [node name="HealthBar" parent="." instance=ExtResource("1_jm2ea")]
 unique_name_in_owner = true

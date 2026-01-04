@@ -21,19 +21,32 @@ extends VBoxContainer
 @onready var health_bar: HealthBar = %HealthBar
 @onready var health_label: Label = %HealthLabel
 @onready var item_container: HBoxContainer = %ItemContainer
+@onready var unit_stats: VBoxContainer = $UnitStats
+@onready var ad_number: Label = $UnitStats/AD/number
+@onready var ap_number: Label = $UnitStats/AP/number
+@onready var atk_speed_number: Label = $"UnitStats/ATK Speed/number"
+@onready var atk_range_number: Label = $"UnitStats/ATK Range/number"
+
 
 
 func _ready() -> void:
 	stats = self.stats
 	var item_ui := item_container.get_child(0) as ItemUI
 	item_ui.item = stats.equipped_ability
+	_set_unit_stats()
 	#item_handler = self.item_handler
 
 
 func _on_stats_changed() -> void:
 	health_label.text = "%s/%s" % [stats.health, stats.get_max_health()]
+	_set_unit_stats()
 
-
+func _set_unit_stats() -> void:
+	ad_number.text = str(stats.attack_damage)
+	ap_number.text = str(stats.ability_power)
+	atk_speed_number.text = str(stats.attack_speed)
+	atk_range_number.text = str(stats.attack_range)
+	
 #func _on_items_changed() -> void:
 	#for i: int in item_container.get_child_count():
 		#var item_ui := item_container.get_child(i) as ItemUI
