@@ -32,7 +32,6 @@ func _ready() -> void:
 			#print("gold: ", player_stats.gold)
 	#)
 
-
 func _set_item_stats(value: ItemStats) -> void:
 	item_stats = value
 	
@@ -80,10 +79,38 @@ func _on_pressed() -> void:
 func _on_mouse_entered() -> void:
 	if not disabled:
 		border_sb.border_color = HOVER_BORDER_COLOR
+		#TooltipHandler.popup.show_popup(
+			#_tooltip(),
+			#get_global_mouse_position()
+		#)
+		#get_viewport().set_input_as_handled()
 
 
 func _on_mouse_exited() -> void:
 	border_sb.border_color = border_color
+	#TooltipHandler.popup.hide_popup()
 
 func _get_item_type(type: String) -> String:
 	return type.replace(" ", "\n")
+
+func _tooltip() -> DetailedTooltip:
+	var new_tooltip := TooltipHandler.DETAILED_TOOLTIP.instantiate() as DetailedTooltip
+	var data := new_tooltip.DetailedTooltipData.new()
+	data.texture = item_icon.texture
+	data.title = item_stats.name
+	data.description = item_stats.description
+	new_tooltip.setup(data)
+	return new_tooltip
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("tooltip"):
+		TooltipHandler.popup.show_popup(
+			_tooltip(),
+			get_global_mouse_position()
+		)
+		get_viewport().set_input_as_handled()
+
+
+#func _on_gui_input(event: InputEvent) -> void:
+	#pass # Replace with function body.

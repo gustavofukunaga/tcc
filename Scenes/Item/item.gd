@@ -20,6 +20,7 @@ func _ready() -> void:
 		drag_and_drop.drag_started.connect(_on_drag_started)
 		drag_and_drop.dropped.connect(_on_dropped)
 		drag_and_drop.drag_canceled.connect(_on_drag_canceled)
+		input_event.connect(_on_input_event)
 
 
 func set_stats(value: ItemStats) -> void:
@@ -82,3 +83,27 @@ func _on_mouse_exited() -> void:
 	
 	outline_highlighter.clear_highlight()
 	z_index = 0
+
+func _get_texture_as_atlas() -> Texture:
+	var atlas_texture := AtlasTexture.new()
+	atlas_texture.atlas = skin.texture
+	atlas_texture.region = skin.region_rect
+	return atlas_texture
+
+func _get_tooltip() -> DetailedTooltip:
+	var new_tooltip := TooltipHandler.DETAILED_TOOLTIP.instantiate() as DetailedTooltip
+	var data := new_tooltip.DetailedTooltipData.new()
+	data.texture = _get_texture_as_atlas()
+	data.title = stats.name
+	data.description = stats.description
+	new_tooltip.setup(data)
+	return new_tooltip
+
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("tooltip"):
+		TooltipHandler.popup.show_popup(
+			_get_tooltip(),
+			get_global_mouse_position()
+		)
+		get_viewport().set_input_as_handled()

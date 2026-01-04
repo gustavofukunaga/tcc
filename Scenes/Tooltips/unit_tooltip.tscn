@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://csp1w1jnfbwul"]
+
+[ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="1_jm2ea"]
+[ext_resource type="Script" uid="uid://clym6ajqs0u60" path="res://Scenes/Tooltips/unit_tooltip.gd" id="1_qr1tc"]
+[ext_resource type="FontFile" uid="uid://8di0jvr25vat" path="res://Assets/font/m5x7.ttf" id="2_qr1tc"]
+[ext_resource type="PackedScene" uid="uid://cow562e0hvt3s" path="res://Scenes/ItemUI/item_ui.tscn" id="3_l4ifx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jbxt"]
+font = ExtResource("2_qr1tc")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qr1tc"]
+font = ExtResource("2_qr1tc")
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UnitTooltip" type="VBoxContainer"]
+offset_right = 100.0
+offset_bottom = 63.0
+script = ExtResource("1_qr1tc")
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="UnitName" type="Label" parent="Title"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Frod
+"
+
+[node name="HealthBar" parent="." instance=ExtResource("1_jm2ea")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="HealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0/1000"
+label_settings = SubResource("LabelSettings_8jbxt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EquippedItemLabel" type="Label" parent="Item"]
+layout_mode = 2
+text = "Equipped Ability:"
+label_settings = SubResource("LabelSettings_qr1tc")
+horizontal_alignment = 1
+
+[node name="ItemContainer" type="HBoxContainer" parent="Item"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ItemUI" parent="Item/ItemContainer" instance=ExtResource("3_l4ifx")]
+layout_mode = 2

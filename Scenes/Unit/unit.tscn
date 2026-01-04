@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coras6tgh04h5"]
+[gd_scene load_steps=11 format=3 uid="uid://coras6tgh04h5"]
 
 [ext_resource type="Script" uid="uid://cg7h0owded255" path="res://Scenes/Unit/unit.gd" id="1_15sed"]
 [ext_resource type="Texture2D" uid="uid://b804rgdbdcbwx" path="res://Assets/rogues.png" id="1_hgpyh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d077xoc6cueo6" path="res://Components/packed_sprite2d.gd" id="5_2itl1"]
 [ext_resource type="PackedScene" uid="uid://c1whvt3bdqgxe" path="res://Scenes/health_bar/health_bar.tscn" id="5_kakeo"]
 [ext_resource type="Script" uid="uid://dye12q485wwdu" path="res://Components/outline_highlighter.gd" id="6_jbdwb"]
+[ext_resource type="Script" uid="uid://c8bofstjifmpj" path="res://Custom_nodes/unit_tooltip_handler.gd" id="9_uodik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpyh"]
 size = Vector2(32, 32)
@@ -47,6 +48,11 @@ script = ExtResource("6_jbdwb")
 visuals = NodePath("../Visuals")
 outline_color = Color(1, 1, 1, 1)
 outline_thickness = 1
+
+[node name="UnitTooltipHandler" type="Node" parent="." node_paths=PackedStringArray("unit")]
+script = ExtResource("9_uodik")
+unit = NodePath("..")
+metadata/_custom_type_script = "uid://c8bofstjifmpj"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

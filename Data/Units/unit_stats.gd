@@ -38,8 +38,9 @@ const MOVE_ONE_TILE_SPEED := 1.0
 @export var armor: int
 @export_range(1, MAX_ATTACK_RANGE) var attack_range: int
 @export var melee_attack: PackedScene = preload("res://scenes/_effects/attack_smear_effect.tscn")
-@export var ranged_attack: PackedScene
+@export var ranged_attack: PackedScene = preload("res://Scenes/_projectiles/frod_projectile.tscn")
 @export var ability: PackedScene
+@export var equipped_ability: ItemStats
 #@export var auto_attack_sound: AudioStream
 
 var health: int : set = _set_health
@@ -80,6 +81,9 @@ func get_team_collision_mask() -> int:
 
 
 func _set_health(value: int) -> void:
+	if value > max_health:
+		return
+	
 	health = value
 	emit_changed()
 	
