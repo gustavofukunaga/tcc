@@ -2,7 +2,7 @@ class_name ItemsHandler
 extends Node
 
 func apply_item_effect(item: ItemStats, unit: Area2D):
-	#unit.stats.max_health += item.max_health
+	unit.stats.max_health += item.max_health
 	unit.stats.health += item.health
 	unit.stats.max_mana = item.max_mana
 	#unit.stats.starting_mana += item.starting_mana

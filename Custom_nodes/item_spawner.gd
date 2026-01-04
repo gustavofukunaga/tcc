@@ -19,7 +19,9 @@ func _get_first_available_area() -> PlayArea:
 func spawn_item(item: ItemStats) -> void:
 	var area := _get_first_available_area()
 	# TODO in the future, throw a popup error message here!
-	assert(area, "No available space to add item to!")
+	#assert(area, "No available space to add item to!")
+	if not area:
+		return
 	
 	var new_item := ITEM.instantiate()
 	var tile := area.unit_grid.get_first_empty_tile()

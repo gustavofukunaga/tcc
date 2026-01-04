@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://bsiic4kwpba8n"]
+
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_auocf"]
+[ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="2_pg523"]
+
+[resource]
+script = ExtResource("2_pg523")
+name = "Health"
+description = "+30 MAX HP"
+type = "Stat Bonus"
+rarity = 1
+gold_cost = 3
+pool_count = 99
+skin_coordinates = Vector2i(4, 20)
+max_health = 30
+health = 50
+max_mana = 0
+starting_mana = 0
+attack_damage = 0
+ability_power = 0
+attack_speed = 0.0
+armor = 0
+attack_range = 0
+melee_attack = ExtResource("1_auocf")
+metadata/_custom_type_script = "uid://cwm0usltptrtm"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=4 format=3 uid="uid://bxsgcjcr7olte"]
+
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_iv71t"]
+[ext_resource type="PackedScene" uid="uid://d045ocq2a6it8" path="res://Scenes/_projectiles/frod_projectile.tscn" id="2_41t1t"]
+[ext_resource type="Script" uid="uid://b5xwqcu3p6jfw" path="res://Data/Units/unit_stats.gd" id="3_kngs0"]
+
+[resource]
+script = ExtResource("3_kngs0")
+name = "Oren"
+skin_coordinates = Vector2i(4, 6)
+team = 0
+max_health = 150
+max_mana = 0
+starting_mana = 0
+attack_damage = 10
+ability_power = 0
+attack_speed = 0.5
+armor = 0
+attack_range = 1
+melee_attack = ExtResource("1_iv71t")
+ranged_attack = ExtResource("2_41t1t")
+metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

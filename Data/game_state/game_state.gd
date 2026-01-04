@@ -62,7 +62,7 @@ const TANK = preload("res://Data/enemies/tank.tres")
 const ZOMBIE := preload("res://data/enemies/zombie.tres")
 const SKELETON = preload("res://Data/enemies/skeleton.tres")
 
-const BONUS_GOLD = 20
+const BONUS_GOLD = 30
 
 @export var current_phase: Phase:
 	set(value):
@@ -86,7 +86,8 @@ func player_won() -> void:
 	print("Level ", player_stats.level, " start")
 
 func enemy_won() -> void:
-	_game_over()
+	
+	#_game_over()
 	print("Game Over")
 
 func _game_over() -> void:

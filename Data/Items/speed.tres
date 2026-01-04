@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://c4mbj3emu0k4x"]
+
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_37k3a"]
+[ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="2_3s08k"]
+
+[resource]
+script = ExtResource("2_3s08k")
+name = "Speed"
+description = "+0.5% ATK Speed"
+type = "Stat Bonus"
+rarity = 0
+gold_cost = 2
+pool_count = 99
+skin_coordinates = Vector2i(5, 17)
+max_health = 0
+health = 0
+max_mana = 0
+starting_mana = 0
+attack_damage = 0
+ability_power = 0
+attack_speed = 0.1
+armor = 0
+attack_range = 0
+melee_attack = ExtResource("1_37k3a")
+metadata/_custom_type_script = "uid://cwm0usltptrtm"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cy4g8o8gnifo0"]
+[gd_scene load_steps=24 format=4 uid="uid://cy4g8o8gnifo0"]
 
 [ext_resource type="Script" uid="uid://dn3xhixj770o0" path="res://Scenes/Arena/arena.gd" id="1_6o3nl"]
 [ext_resource type="TileSet" uid="uid://c1jgtklhf5663" path="res://Scenes/Arena/tile_set.tres" id="1_b8w6q"]
@@ -10,7 +10,10 @@
 [ext_resource type="Resource" uid="uid://xc2wwbeifw3u" path="res://Data/Units/frod.tres" id="8_0ibrr"]
 [ext_resource type="Script" uid="uid://bphpuyrtltmeu" path="res://Custom_nodes/unit_mover.gd" id="8_fsjwy"]
 [ext_resource type="Resource" uid="uid://d1pplv4esnoo6" path="res://Data/Units/hale.tres" id="9_87vak"]
+[ext_resource type="Resource" uid="uid://cwrqw0lcd86sv" path="res://Data/Units/fen.tres" id="9_mvn0e"]
 [ext_resource type="Script" uid="uid://1hdkoag76lib" path="res://Custom_nodes/unit_navigation_debug.gd" id="10_d81lm"]
+[ext_resource type="Resource" uid="uid://88oyo21x0ybr" path="res://Data/Units/isen.tres" id="10_itsj3"]
+[ext_resource type="Resource" uid="uid://bxsgcjcr7olte" path="res://Data/Units/oren.tres" id="10_vrswg"]
 [ext_resource type="Resource" uid="uid://cim8of57c1lr2" path="res://Data/game_state/game_state.tres" id="11_87vak"]
 [ext_resource type="PackedScene" uid="uid://bsuv6scjti73j" path="res://Scenes/Shop/shop.tscn" id="11_xt8pn"]
 [ext_resource type="Script" uid="uid://cin6la2gclbur" path="res://Custom_nodes/item_mover.gd" id="12_nmnh2"]
@@ -97,15 +100,27 @@ play_area = NodePath("..")
 highlight_layer = NodePath("../Highlight")
 tile = Vector2i(3, 0)
 
-[node name="bram1" parent="Bench" instance=ExtResource("4_rm3sm")]
+[node name="bram" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(0, 64)
 
-[node name="frod1" parent="Bench" instance=ExtResource("4_rm3sm")]
+[node name="frod" parent="Bench" instance=ExtResource("4_rm3sm")]
 stats = ExtResource("8_0ibrr")
 
-[node name="hale1" parent="Bench" instance=ExtResource("4_rm3sm")]
+[node name="hale" parent="Bench" instance=ExtResource("4_rm3sm")]
 position = Vector2(32, 0)
 stats = ExtResource("9_87vak")
+
+[node name="fen" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(32, 32)
+stats = ExtResource("9_mvn0e")
+
+[node name="isen" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(32, 64)
+stats = ExtResource("10_itsj3")
+
+[node name="oren" parent="Bench" instance=ExtResource("4_rm3sm")]
+position = Vector2(0, 32)
+stats = ExtResource("10_vrswg")
 
 [node name="ItemsBench" type="TileMapLayer" parent="." node_paths=PackedStringArray("unit_grid", "tile_highlighter")]
 position = Vector2(160, 320)

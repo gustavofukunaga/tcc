@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemPool" load_steps=8 format=3 uid="uid://cxcmqo5vcsvnl"]
+[gd_resource type="Resource" script_class="ItemPool" load_steps=10 format=3 uid="uid://cxcmqo5vcsvnl"]
 
 [ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_o62qo"]
 [ext_resource type="Resource" uid="uid://csbl0xjlpdu53" path="res://Data/Items/knife.tres" id="2_81imc"]
@@ -7,8 +7,10 @@
 [ext_resource type="Resource" uid="uid://b1ynvpqy35n6b" path="res://Data/Items/arrow_special.tres" id="4_58nvr"]
 [ext_resource type="Resource" uid="uid://bjlkorsvkjyu1" path="res://Data/Items/arrow.tres" id="5_2fnya"]
 [ext_resource type="Resource" uid="uid://bnl1k7cslv2qt" path="res://Data/Items/life.tres" id="6_2fnya"]
+[ext_resource type="Resource" uid="uid://bsiic4kwpba8n" path="res://Data/Items/max_life.tres" id="7_vg420"]
+[ext_resource type="Resource" uid="uid://c4mbj3emu0k4x" path="res://Data/Items/speed.tres" id="8_3icx8"]
 
 [resource]
 script = ExtResource("2_w82qb")
-available_items = Array[ExtResource("1_o62qo")]([ExtResource("2_81imc"), ExtResource("3_js2ie"), ExtResource("4_58nvr"), ExtResource("5_2fnya"), ExtResource("6_2fnya")])
+available_items = Array[ExtResource("1_o62qo")]([ExtResource("2_81imc"), ExtResource("3_js2ie"), ExtResource("4_58nvr"), ExtResource("5_2fnya"), ExtResource("6_2fnya"), ExtResource("7_vg420"), ExtResource("8_3icx8")])
 metadata/_custom_type_script = "uid://dyfcssryrr8ts"
