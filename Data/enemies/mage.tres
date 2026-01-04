@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=6 format=3 uid="uid://f5p7uloiy7hb"]
+
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_4u3q8"]
+[ext_resource type="PackedScene" uid="uid://b78xgtn2fbplx" path="res://Scenes/_abilities/hail_of_arrows.tscn" id="1_ehp5u"]
+[ext_resource type="Resource" uid="uid://b1ynvpqy35n6b" path="res://Data/Items/arrow_special.tres" id="2_g5eyf"]
+[ext_resource type="PackedScene" uid="uid://d045ocq2a6it8" path="res://Scenes/_projectiles/frod_projectile.tscn" id="2_utyeg"]
+[ext_resource type="Script" uid="uid://b5xwqcu3p6jfw" path="res://Data/Units/unit_stats.gd" id="3_ehp5u"]
+
+[resource]
+script = ExtResource("3_ehp5u")
+name = "Mage"
+skin_coordinates = Vector2i(1, 0)
+team = 1
+max_health = 150
+max_mana = 3
+starting_mana = 0
+attack_damage = 10
+ability_power = 10
+attack_speed = 0.8
+armor = 0
+attack_range = 4
+melee_attack = ExtResource("1_4u3q8")
+ranged_attack = ExtResource("2_utyeg")
+ability = ExtResource("1_ehp5u")
+equipped_ability = ExtResource("2_g5eyf")
+metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=6 format=3 uid="uid://d1lvnptct06lt"]
+
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_couy7"]
+[ext_resource type="PackedScene" uid="uid://c0yisw37t1e0g" path="res://Scenes/_abilities/axe_swing.tscn" id="1_y5uhm"]
+[ext_resource type="PackedScene" uid="uid://d045ocq2a6it8" path="res://Scenes/_projectiles/frod_projectile.tscn" id="2_ai8i0"]
+[ext_resource type="Resource" uid="uid://c4uvwindpxl1i" path="res://Data/Items/hammer.tres" id="2_ytrst"]
+[ext_resource type="Script" uid="uid://b5xwqcu3p6jfw" path="res://Data/Units/unit_stats.gd" id="3_y5uhm"]
+
+[resource]
+script = ExtResource("3_y5uhm")
+name = "TANK 2"
+skin_coordinates = Vector2i(1, 1)
+team = 1
+max_health = 450
+max_mana = 7
+starting_mana = 0
+attack_damage = 10
+ability_power = 15
+attack_speed = 0.7
+armor = 0
+attack_range = 1
+melee_attack = ExtResource("1_couy7")
+ranged_attack = ExtResource("2_ai8i0")
+ability = ExtResource("1_y5uhm")
+equipped_ability = ExtResource("2_ytrst")
+metadata/_custom_type_script = "uid://b5xwqcu3p6jfw"

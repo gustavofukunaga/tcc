@@ -10,9 +10,6 @@ const ZOMBIE_TEST_POSITIONS := [
 ]
 const ZOMBIE := preload("res://data/enemies/zombie.tres")
 
-signal player_won
-signal enemy_won
-
 @export var game_state: GameState
 @export var game_area: PlayArea
 @export var game_area_unit_grid: UnitGrid
@@ -52,12 +49,12 @@ func _prepare_fight() -> void:
 		new_unit.stats.team = UnitStats.Team.PLAYER
 		_setup_battle_unit(unit_coord, new_unit)
 	
-	for unit_coord: Vector2i in ZOMBIE_TEST_POSITIONS:
+	for unit_coord: Array in game_state.get_enemy_positions():
 		var new_unit := scene_spawner.spawn_scene(battle_unit_grid) as BattleUnit
 		new_unit.add_to_group("enemy_units")
-		new_unit.stats = ZOMBIE
+		new_unit.stats = unit_coord[0]
 		new_unit.stats.team = UnitStats.Team.ENEMY
-		_setup_battle_unit(unit_coord, new_unit)
+		_setup_battle_unit(unit_coord[1], new_unit)
 
 	
 	UnitNavigation.update_occupied_tiles()
@@ -75,10 +72,12 @@ func _on_battle_unit_died() -> void:
 	
 	if get_tree().get_node_count_in_group("enemy_units") == 0:
 		game_state.current_phase = GameState.Phase.PREPARATION
-		player_won.emit()
+		game_state.player_won()
+		print("plauer won")
 	if get_tree().get_node_count_in_group("player_units") == 0:
 		game_state.current_phase = GameState.Phase.PREPARATION
-		enemy_won.emit()
+		game_state.enemy_won()
+		print("enemy won")
 
 
 func _on_game_state_changed() -> void:
