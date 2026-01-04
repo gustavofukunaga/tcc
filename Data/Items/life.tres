@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://bnl1k7cslv2qt"]
 
-[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://Scenes/_effects/attack_smear_effect.tscn" id="1_ngcdj"]
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://scenes/_effects/attack_smear_effect.tscn" id="1_ngcdj"]
 [ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="2_7lut8"]
 
 [resource]
 script = ExtResource("2_7lut8")
 name = "Health"
+description = "+25 HP"
 type = "Stat Bonus"
 rarity = 0
 gold_cost = 2

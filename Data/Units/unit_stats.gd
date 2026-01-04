@@ -81,10 +81,9 @@ func get_team_collision_mask() -> int:
 
 
 func _set_health(value: int) -> void:
-	if value > max_health:
-		return
-	
 	health = value
+	if health > max_health:
+		health = max_health
 	emit_changed()
 	
 	if health <= 0:

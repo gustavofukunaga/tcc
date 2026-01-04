@@ -6,15 +6,17 @@
 [resource]
 script = ExtResource("1_ounty")
 name = "Knife"
+description = "+20 AD"
 type = "Stat Bonus"
 rarity = 0
 gold_cost = 2
 pool_count = 5
 skin_coordinates = Vector2i(5, 0)
 max_health = 0
+health = 0
 max_mana = 0
 starting_mana = 0
-attack_damage = 1000
+attack_damage = 20
 ability_power = 0
 attack_speed = 0.0
 armor = 0

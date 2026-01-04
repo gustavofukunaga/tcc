@@ -44,7 +44,7 @@ func _on_stats_changed() -> void:
 func _set_unit_stats() -> void:
 	ad_number.text = str(stats.attack_damage)
 	ap_number.text = str(stats.ability_power)
-	atk_speed_number.text = str(stats.attack_speed)
+	atk_speed_number.text = str(stats.attack_speed) + " per second"
 	atk_range_number.text = str(stats.attack_range)
 	
 #func _on_items_changed() -> void:

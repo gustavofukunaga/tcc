@@ -7,7 +7,7 @@
 script = ExtResource("1_n2f4x")
 name = "Arrow"
 description = " +4 attack range"
-type = "Special Ability"
+type = "Stat Bonus"
 rarity = 1
 gold_cost = 3
 pool_count = 5

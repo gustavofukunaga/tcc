@@ -1,13 +1,27 @@
-[gd_resource type="Resource" script_class="ItemStats" load_steps=2 format=3 uid="uid://b1ynvpqy35n6b"]
+[gd_resource type="Resource" script_class="ItemStats" load_steps=4 format=3 uid="uid://b1ynvpqy35n6b"]
 
 [ext_resource type="Script" uid="uid://cwm0usltptrtm" path="res://Data/Items/item_stats.gd" id="1_ogaew"]
+[ext_resource type="PackedScene" uid="uid://b78xgtn2fbplx" path="res://Scenes/_abilities/hail_of_arrows.tscn" id="1_vytgw"]
+[ext_resource type="PackedScene" uid="uid://dxsdrhyvoicym" path="res://scenes/_effects/attack_smear_effect.tscn" id="2_skbtu"]
 
 [resource]
 script = ExtResource("1_ogaew")
 name = "Super"
+description = "3 Quick Ranged Attacks    +15 AP"
 type = "Special Ability"
 rarity = 2
 gold_cost = 4
 pool_count = 3
 skin_coordinates = Vector2i(3, 23)
+max_health = 0
+health = 0
+max_mana = 4
+starting_mana = 0
+attack_damage = 0
+ability_power = 15
+attack_speed = 0.0
+armor = 0
+attack_range = 0
+melee_attack = ExtResource("2_skbtu")
+ability = ExtResource("1_vytgw")
 metadata/_custom_type_script = "uid://cwm0usltptrtm"
