@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_n2f4x")
 name = "Arrow"
-description = " +4 attack range"
+description = "+2 attack range"
 type = "Stat Bonus"
 rarity = 1
 gold_cost = 3
@@ -20,6 +20,6 @@ attack_damage = 0
 ability_power = 0
 attack_speed = 0.0
 armor = 0
-attack_range = 4
+attack_range = 2
 melee_attack = ExtResource("1_5di4m")
 metadata/_custom_type_script = "uid://cwm0usltptrtm"

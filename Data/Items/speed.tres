@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_3s08k")
 name = "Speed"
-description = "+0.5% ATK Speed"
+description = "+0.1% ATK Speed"
 type = "Stat Bonus"
 rarity = 0
 gold_cost = 2
