@@ -8,7 +8,7 @@ const ZOMBIE_TEST_POSITIONS := [
 	#Vector2i(7, 0),
 	Vector2i(7, 3)
 ]
-const ZOMBIE := preload("res://data/enemies/zombie.tres")
+const ZOMBIE := preload("res://Data/enemies/zombie.tres")
 
 @export var game_state: GameState
 @export var game_area: PlayArea

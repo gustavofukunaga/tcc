@@ -3,7 +3,7 @@ extends Node
 
 signal item_spawned(item: Item)
 
-const ITEM = preload("res://scenes/item/item.tscn")
+const ITEM = preload("res://Scenes/Item/item.tscn")
 
 @export var item_bench: PlayArea
 

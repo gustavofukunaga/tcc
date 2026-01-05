@@ -37,7 +37,7 @@ const MOVE_ONE_TILE_SPEED := 1.0
 @export var attack_speed: float
 @export var armor: int
 @export_range(1, MAX_ATTACK_RANGE) var attack_range: int
-@export var melee_attack: PackedScene = preload("res://scenes/_effects/attack_smear_effect.tscn")
+@export var melee_attack: PackedScene = preload("res://Scenes/_effects/attack_smear_effect.tscn")
 @export var ranged_attack: PackedScene = preload("res://Scenes/_projectiles/frod_projectile.tscn")
 @export var ability: PackedScene
 @export var equipped_ability: ItemStats

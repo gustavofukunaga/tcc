@@ -10,7 +10,7 @@ func apply_item_effect(item: ItemStats, unit: Area2D):
 	unit.stats.attack_speed += item.attack_speed
 	#unit.stats.armor += item.armor
 	unit.stats.attack_range += item.attack_range
-	#unit.stats.melee_attack = preload("res://scenes/_effects/attack_smear_effect.tscn")
+	#unit.stats.melee_attack = preload("res://Scenes/_effects/attack_smear_effect.tscn")
 	#unit.stats.ranged_attack = item.ranged_attack
 	if item.ability:
 		if unit is BattleUnit:

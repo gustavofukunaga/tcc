@@ -32,7 +32,7 @@ const RARITY_COLORS := {
 @export var attack_speed: float
 @export var armor: int
 @export var attack_range: int
-@export var melee_attack: PackedScene = preload("res://scenes/_effects/attack_smear_effect.tscn")
+@export var melee_attack: PackedScene = preload("res://Scenes/_effects/attack_smear_effect.tscn")
 @export var ranged_attack: PackedScene
 @export var ability: PackedScene
 

@@ -59,7 +59,7 @@ const MAGE = preload("res://Data/enemies/mage.tres")
 const REAPER = preload("res://Data/enemies/reaper.tres")
 const TANK_2 = preload("res://Data/enemies/tank2.tres")
 const TANK = preload("res://Data/enemies/tank.tres")
-const ZOMBIE := preload("res://data/enemies/zombie.tres")
+const ZOMBIE := preload("res://Data/enemies/zombie.tres")
 const SKELETON = preload("res://Data/enemies/skeleton.tres")
 
 const BONUS_GOLD = 30
